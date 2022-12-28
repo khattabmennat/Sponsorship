@@ -1,8 +1,91 @@
-<p>new dashboard in Bearbeitung!</p>
+<Sponsorship-top-nav></Sponsorship-top-nav>
 
-<form class="signin-form" (ngSubmit)="onSubmit()">
-    <div class="form-group">
-        <button type="submit" class="form-control btn btn-primary rounded submit px-3"
-            >Weiter zu Edit und Hinzufügen Seite</button>
+<div class="container">
+  <div class="row" *ngIf="displayData">
+    <div class="col m-3 cards-container">
+      <div class="card" style="width: 180px">
+        <div class="card-body">
+          <h5>{{ "dashboard-page.numberOfOrphans" | translate }}</h5>
+          <p>{{ this.displayData.numberOfOrphans }}</p>
+        </div>
+      </div>
+      <div class="card" style="width: 180px">
+        <div class="card-body">
+          <h5>{{ "dashboard-page.numberOfSponsors" | translate }}</h5>
+          <p>{{ this.displayData.numberOfSponsors }}</p>
+        </div>
+      </div>
+      <div class="card" style="width: 180px">
+        <div class="card-body">
+          <h5>{{ "dashboard-page.numberOfFamilies" | translate }}</h5>
+          <p>{{ this.displayData.numberOfFamilies }}</p>
+        </div>
+      </div>
     </div>
-</form>
+  </div>
+  <div class="row" *ngIf="tableData">
+    <div class="col">
+      <input
+        style="width: 200px; border: 2px solid black"
+        type="text"
+        class="form-control m-3"
+        [placeholder]="'nav-bar.search.placeholder' | translate"
+        [(ngModel)]="dashboardFilterTerm"
+      />
+    </div>
+  </div>
+  <div class="row" *ngIf="tableData">
+    <div class="col">
+      <div class="table-responsive m-3">
+        <table class="table table-info table-striped table-primary">
+          <thead style="color: black">
+            <th style="min-width: 115px">
+              {{ "dashboard-page.tableData.orphans" | translate }}
+            </th>
+            <th style="min-width: 115px">
+              {{ "dashboard-page.tableData.sponsors" | translate }}
+            </th>
+            <th style="min-width: 115px">
+              {{ "dashboard-page.tableData.families" | translate }}
+            </th>
+            <th style="min-width: 125px">
+              {{ "dashboard-page.tableData.isPaid" | translate }}
+            </th>
+            <th style="min-width: 125px">
+              {{ "dashboard-page.tableData.helpStartDate" | translate }}
+            </th>
+            <th style="min-width: 125px">
+              {{
+                "dashboard-page.tableData.WaisenpatenschaftFormel" | translate
+              }}
+            </th>
+          </thead>
+          <tbody>
+            <ng-container
+              *ngFor="
+                let rowData of tableData
+                  | filter: dashboardFilterTerm
+                  | paginate
+                    : { itemsPerPage: 5, currentPage: currentPageNumber }
+              "
+            >
+              <tr>
+                <td>{{ rowData.orphans }}</td>
+                <td>{{ rowData.sponsors }}</td>
+                <td>{{ rowData.families }}</td>
+                <td>{{ rowData.isPaid }}</td>
+                <td>{{ rowData.helpStartDate }}</td>
+                <td>{{ rowData.WaisenpatenschaftFormel }}</td>
+              </tr>
+            </ng-container>
+          </tbody>
+        </table>
+        <div class="justify-center" style="float: right">
+          <pagination-controls
+            (pageChange)="currentPageNumber = $event"
+          ></pagination-controls>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
