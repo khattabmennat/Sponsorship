@@ -8,17 +8,17 @@ import { SponsorProfileComponent } from './components/sponsor-profile/sponsor-pr
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 const routes: Routes = [
-  {path:'', component: LoginComponent},
-  {path:'login', component: LoginComponent},
-  {path:'profile', component: ProfileComponent},
-  {path:'sponsor-profile', component: SponsorProfileComponent},
-  {path:'admin-page', component: AdminPageComponent},
-  {path:'main-page', component: MainPageComponent},
-  {path:'dashboard', component: DashboardComponent}
+  { path: '', component: LoginComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'profile', component: ProfileComponent },
+  { path: 'sponsor-profile', component: SponsorProfileComponent },
+  { path: 'admin-page', component: AdminPageComponent },
+  { path: 'main-page', component: MainPageComponent },
+  { path: 'dashboard', component: DashboardComponent },
 ];
-` `
+
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

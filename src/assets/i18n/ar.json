@@ -1,170 +1,175 @@
 {
-    "nav-bar": {
-      "nav-item": {
-       "home": "الصفحة الرئيسية",
-        "sponsor":" قائمة  الكفلاء ",
-        "orphans":" قائمة  الايتام"
-      },
-      "search": {
-        "name": "بحث",
-        "label": "بحث",
-        "placeholder": "بحث"
-      }
+  "nav-bar": {
+    "nav-item": {
+      "logout": "الخروج",
+      "dashboard": "الصفحة الرئيسية",
+      "administration": "إدارة بيانات الايتام والكفلاء"
     },
-  
-      "landing-page": {
-  
-        "main-heading": "مرحبًا بك في لوحة تحكم المسؤول",
-        "dashboard-heading":"لوحة تحكم المسؤو",
-        "orphans-list": " قائمة الأيتام",
-        "orphans-total": "مجموع الأيتام",
-        "sponsors-total": "مجموع الرعاة",
-        "sponsors-list": "قائمة الرعاة",
-        "view-details": "عرض التفاصيل",
-        "top-sponsors": "كبار الرعاة",
-        "add-new-orphan": "اضافة يتيم جديد",
-        "add-new-sponsor": " إضافة راعي جديد",
-        "sponsor-table": {
-            "headings": {
-                "fullname": "الاسم الكامل",
-                "address": "العنوان",
-                "action": "عمل",
-                "familyname": "اسم العائلة",
-                "profession": "مهنة",
-                
-                "SpDeathDate":"تاريخ وفاة الأب"
-            }
-        }       
-  
-      },
-
-      "modal-form": {
-        "AddNewOrphan":"اضافة يتيم جديد",
-        "UpdateOrphan":" تحديث اليتيم",
-        "fillallfields":"الرجاء ملء جميع الحقول",
-        "UploadfamilyImage":" تحميل صورة الاسرة  ",
-        "SelectedImage":"الصورة المحددة",
-        "FamilyName":"اسم العائلة",
-        "enterValidFamilyName":"الرجاء إدخال اسم عائلي",
-        "MotherlastName":"اسم الأم الشخصي",
-        "MotherFirstName": "اسم الأم العائلي ",
-        "profession":"المهنة",
-        "NumberOfOrphans":"عدد الأيتام",
-        "SpDeathDate":" تاريخ وفاة الاب",
-        "Address":"العنوان",
-        "MaternalHealthStatus":"حالة الأم الصحية",
-        "AcademicLevel":"مستوى التعليم",
-        "Sponsored":"الاسر المكلف بها",
-        "helpstartdate":"تاريخ بداية الكفالة",
-        
-        "PleaseEnterValidMotherFirstName": "الرجاء إدخال اسم الأم الأول صالح",
-        "PleaseentervalidMotherLastName":"الرجاء إدخال اسم  الأم",
-        "PleaseEnterValidProfession":"الرجاء إدخال المهنة",
-        "PleaseEnterNumberOfOrphans":"الرجاء إدخال عدد الأيتام",
-        "PleaseEnterAddress":"الرجاء إدخال العنوان",
-        "PleaseEnterSpDeathDate":"الرجاء إدخال تاريخ وفاة الأب",
-        "Pleaseentervalidfamilyname":"الرجاء إدخال الاسم العائلي",
-        "PleaseentervalidPersonalIDCard":"الرجاء إدخال بطاقة هوية شخصية",
-        "PleaseentervalidTelephoneNumber":"الرجاء إدخال رقم الهاتف",
-        "Pleasefillallthefields":"الرجاء ملء جميع الحقول",
-  
-        "PleaseEnterValidFirstName":"الرجاء إدخال اسم أول صالح",
-        "PleaseEnterValidLastName":"الرجاء إدخال اسم عائلة صالح",
-        "PleaseEnterValidEmail":"يرجى إدخال البريد الإلكتروني الصحيح",
-        "PleaseEnterFamilyAssisted":"الرجاء إدخال الأسرة بمساعدة",
-        "PleaseEnterFamilyHelped":"الرجاء إدخال الأسرة ساعدت",
-        "PleaseenterHelpedType":"الرجاء إدخال نوع المساعدة",
-        "PleaseenterContributionAmount":"الرجاء إدخال مبلغ المساهمة",
-        "PleaseenterPaid":"الرجاء إدخال الحالة المدفوعة",
-
-      "PleaseenterUsername":"الرجاءادخال اسم مستخدم صحيح",
-      "PleaseenterPassword":"من فضلك أدخل رقمك السري",
-
-        "AddOrphan":"إضافة اليتيم",
-        "deleteOrphan":"حذف اليتيم",
-        "DeleteSponsor":"حذف الكفيل",
-        "Orphan":"اليتيم",
-        "Orphans":"أيتام",
-        "OrphanName":"اسم اليتيم",
-        "OrphanFirstName":"الاسم العاءلي لليتيم",
-        "Orphanbirthday":"تاريخ ميلاد اليتيم",
-        "OrphanAcademicLevel":"المستوى الدراسي لليتيم",
-        "Notes":"ملاحظات",
-        "HealthStatus":"الحالة الصحية لليتيم",
-        "ResidentialStatus":" الوضع السكني",
-        "NumberOfPeople":"عدد الأشخاص",
-        "SocialCare":"الرعاية الاجتماعية",
-        "povertyIndex":"مؤشر الفقر",
-        "GodFatherType":"صيغة الكفالة",
-  
-        "PleaseEnterName":"الرجاء إدخال اسم اليتيم",
-        "PleaseentervalidMotherFirstName": "الرجاء إدخال الاسم الشخصي للام",
-        "PleaseentervalidMaternalHealthStatus":"الرجاء إدخال حالة الأم الصحية",
-        "PleaseEnterDateOfOrphanbirthday":"الرجاء إدخال تاريخ ميلاد اليتيم",
-        "PleaseEnterOrphanAcademicLevel":"الرجاء إدخال المستوى الدراسي لليتيم",
-        "PleaseenterfirstName":"الرجاء إدخال الاسم الشخصي  ",
-        "PleaseenterHealthStatus":"الرجاء إدخال الحالة الصحية",
-        "PleaseenterResidentialStatus":"الرجاء إدخال الحالة السكنية",
-        "PleaseenterNumberOfPeople":"الرجاء إدخال عدد الأشخاص",
-        "Pleaseenterearnings":"الرجاء إدخال مؤشر الفقر",
-        "Pleaseenteracademiclevel":"الرجاء إدخال المستوى الدراسي لليتيم",
-       
-
-  
-        "SelectAttachmentDocs":"حدد المستندات المرفقة",
-        "SelectedFiles":"الملفات المختارة",
-        "AreYouSureYouWanttoDelete":"هل أنت متأكد من أنك تريد الحذف",
-  
-        "Spfullname": "الاسم الكامل للكفيل",
-        "SpFirstName":"الاسم الشخصي للكفيل",
-        "SpLastName":"الاسم العائلي للكفيل",
-        "PersonalIDCard":"رقم بطاقة التعريف الوطنية",
-        "Phone":"رقم الهاتف",
-        "Mail":"البريد الالكتروني",
-        "NameofFamilyAssisted":"اسم الاسرة المكلف بها",
-        "NrofFamilyHelped":"عدد الاسر المكلف بها",
-        "HelpType":"نوع المساعدة",
-        "ContributionAmount":"مبلغ المساهمة",
-        "UpdateSponsor":"تحديث  الكفيل",
-        
-  
-        "Data":"البيانات",
-        "Nr":"رقم",
-        "Close":"إغلاق",
-        "SaveDetails":"يحفظ",
-        "Details":"التفاصيل",
-        "Delete":"حذف",
-        "AboutMother":"معلومات حول الام" ,
-        "AboutSponsor":"معلومات حول  الكفيل",
-        "Attachments":"المرفقات",
-        "GoBack":"رجوع",
-        "PaidYesOrNo":"تم دفع الكفالة ؟ نعم ام لا",
-        "TheAmountPaid":"مبلغ الكفالة المدفوع",
-        "TheAmountSpent":"المبلغ المنفق"
-      },
-  
-
-      "login-page": {
-        "user-label": "اسم االمستخدم",
-        "password-label":  " كلمة المرور",
-        "LogintoSystem":"تسجيل الدخول",
-        "Typeyouruserinformation":"اكتب معلومات المستخدم الخاصة بك",
-        "connect":"تسجيل الدخول",
-        "SignIn":" تسجيل الدخول"
-  
-      },
-   
-
-      "common": {
-        "btn-edit": "تعديل",
-        "btn-add":"خلق جديد إبداع جديد",
-        "btn-del": "حذف"
-      },
-
-      "add-sponsor-modal": {
-        "title": "إضافة راعي جديد"
-      },
-  
-      "copyright": "كل الحقوق محفوظة. {{currentYear}} {{company}}"
-    
+    "search": {
+      "name": "بحث",
+      "label": "بحث",
+      "placeholder": "بحث"
     }
+  },
+
+  "dashboard-page": {
+    "numberOfOrphans": "عدد الأيتام",
+    "numberOfSponsors": "عدد الكفلاء",
+    "numberOfFamilies": "عدد العائلات",
+    "tableData": {
+      "orphans": "الأيتام",
+      "sponsors": "الكفلاء",
+      "families": "العائلات",
+      "isPaid": "تم دفع الكفالة",
+      "helpStartDate": "تاريخ بداية الكفالة",
+      "WaisenpatenschaftFormel": "صيغة الكفالة"
+    }
+  },
+
+  "landing-page": {
+    "main-heading": "مرحبًا بك في لوحة تحكم المسؤول",
+    "dashboard-heading": "لوحة تحكم المسؤو",
+    "orphans-list": " قائمة الأيتام",
+    "orphans-total": "مجموع الأيتام",
+    "sponsors-total": "مجموع الرعاة",
+    "sponsors-list": "قائمة الرعاة",
+    "view-details": "عرض التفاصيل",
+    "top-sponsors": "كبار الرعاة",
+    "add-new-orphan": "اضافة يتيم جديد",
+    "add-new-sponsor": " إضافة راعي جديد",
+    "sponsor-table": {
+      "headings": {
+        "fullname": "الاسم الكامل",
+        "address": "العنوان",
+        "action": "عمل",
+        "familyname": "اسم العائلة",
+        "profession": "مهنة",
+
+        "SpDeathDate": "تاريخ وفاة الأب"
+      }
+    }
+  },
+
+  "modal-form": {
+    "AddNewOrphan": "اضافة يتيم جديد",
+    "UpdateOrphan": " تحديث اليتيم",
+    "fillallfields": "الرجاء ملء جميع الحقول",
+    "UploadfamilyImage": " تحميل صورة الاسرة  ",
+    "SelectedImage": "الصورة المحددة",
+    "FamilyName": "اسم العائلة",
+    "enterValidFamilyName": "الرجاء إدخال اسم عائلي",
+    "MotherlastName": "اسم الأم الشخصي",
+    "MotherFirstName": "اسم الأم العائلي ",
+    "profession": "المهنة",
+    "NumberOfOrphans": "عدد الأيتام",
+    "SpDeathDate": " تاريخ وفاة الاب",
+    "Address": "العنوان",
+    "MaternalHealthStatus": "حالة الأم الصحية",
+    "AcademicLevel": "مستوى التعليم",
+    "Sponsored": "الاسر المكلف بها",
+    "helpstartdate": "تاريخ بداية الكفالة",
+
+    "PleaseEnterValidMotherFirstName": "الرجاء إدخال اسم الأم الأول صالح",
+    "PleaseentervalidMotherLastName": "الرجاء إدخال اسم  الأم",
+    "PleaseEnterValidProfession": "الرجاء إدخال المهنة",
+    "PleaseEnterNumberOfOrphans": "الرجاء إدخال عدد الأيتام",
+    "PleaseEnterAddress": "الرجاء إدخال العنوان",
+    "PleaseEnterSpDeathDate": "الرجاء إدخال تاريخ وفاة الأب",
+    "Pleaseentervalidfamilyname": "الرجاء إدخال الاسم العائلي",
+    "PleaseentervalidPersonalIDCard": "الرجاء إدخال بطاقة هوية شخصية",
+    "PleaseentervalidTelephoneNumber": "الرجاء إدخال رقم الهاتف",
+    "Pleasefillallthefields": "الرجاء ملء جميع الحقول",
+
+    "PleaseEnterValidFirstName": "الرجاء إدخال اسم أول صالح",
+    "PleaseEnterValidLastName": "الرجاء إدخال اسم عائلة صالح",
+    "PleaseEnterValidEmail": "يرجى إدخال البريد الإلكتروني الصحيح",
+    "PleaseEnterFamilyAssisted": "الرجاء إدخال الأسرة بمساعدة",
+    "PleaseEnterFamilyHelped": "الرجاء إدخال الأسرة ساعدت",
+    "PleaseenterHelpedType": "الرجاء إدخال نوع المساعدة",
+    "PleaseenterContributionAmount": "الرجاء إدخال مبلغ المساهمة",
+    "PleaseenterPaid": "الرجاء إدخال الحالة المدفوعة",
+
+    "PleaseenterUsername": "الرجاءادخال اسم مستخدم صحيح",
+    "PleaseenterPassword": "من فضلك أدخل رقمك السري",
+
+    "AddOrphan": "إضافة اليتيم",
+    "deleteOrphan": "حذف اليتيم",
+    "DeleteSponsor": "حذف الكفيل",
+    "Orphan": "اليتيم",
+    "Orphans": "أيتام",
+    "OrphanName": "اسم اليتيم",
+    "OrphanFirstName": "الاسم العاءلي لليتيم",
+    "Orphanbirthday": "تاريخ ميلاد اليتيم",
+    "OrphanAcademicLevel": "المستوى الدراسي لليتيم",
+    "Notes": "ملاحظات",
+    "HealthStatus": "الحالة الصحية لليتيم",
+    "ResidentialStatus": " الوضع السكني",
+    "NumberOfPeople": "عدد الأشخاص",
+    "SocialCare": "الرعاية الاجتماعية",
+    "povertyIndex": "مؤشر الفقر",
+    "GodFatherType": "صيغة الكفالة",
+
+    "PleaseEnterName": "الرجاء إدخال اسم اليتيم",
+    "PleaseentervalidMotherFirstName": "الرجاء إدخال الاسم الشخصي للام",
+    "PleaseentervalidMaternalHealthStatus": "الرجاء إدخال حالة الأم الصحية",
+    "PleaseEnterDateOfOrphanbirthday": "الرجاء إدخال تاريخ ميلاد اليتيم",
+    "PleaseEnterOrphanAcademicLevel": "الرجاء إدخال المستوى الدراسي لليتيم",
+    "PleaseenterfirstName": "الرجاء إدخال الاسم الشخصي  ",
+    "PleaseenterHealthStatus": "الرجاء إدخال الحالة الصحية",
+    "PleaseenterResidentialStatus": "الرجاء إدخال الحالة السكنية",
+    "PleaseenterNumberOfPeople": "الرجاء إدخال عدد الأشخاص",
+    "Pleaseenterearnings": "الرجاء إدخال مؤشر الفقر",
+    "Pleaseenteracademiclevel": "الرجاء إدخال المستوى الدراسي لليتيم",
+
+    "SelectAttachmentDocs": "حدد المستندات المرفقة",
+    "SelectedFiles": "الملفات المختارة",
+    "AreYouSureYouWanttoDelete": "هل أنت متأكد من أنك تريد الحذف",
+
+    "Spfullname": "الاسم الكامل للكفيل",
+    "SpFirstName": "الاسم الشخصي للكفيل",
+    "SpLastName": "الاسم العائلي للكفيل",
+    "PersonalIDCard": "رقم بطاقة التعريف الوطنية",
+    "Phone": "رقم الهاتف",
+    "Mail": "البريد الالكتروني",
+    "NameofFamilyAssisted": "اسم الاسرة المكلف بها",
+    "NrofFamilyHelped": "عدد الاسر المكلف بها",
+    "HelpType": "نوع المساعدة",
+    "ContributionAmount": "مبلغ المساهمة",
+    "UpdateSponsor": "تحديث  الكفيل",
+
+    "Data": "البيانات",
+    "Nr": "رقم",
+    "Close": "إغلاق",
+    "SaveDetails": "يحفظ",
+    "Details": "التفاصيل",
+    "Delete": "حذف",
+    "AboutMother": "معلومات حول الام",
+    "AboutSponsor": "معلومات حول  الكفيل",
+    "Attachments": "المرفقات",
+    "GoBack": "رجوع",
+    "PaidYesOrNo": "تم دفع الكفالة ؟ نعم ام لا",
+    "TheAmountPaid": "مبلغ الكفالة المدفوع",
+    "TheAmountSpent": "المبلغ المنفق"
+  },
+
+  "login-page": {
+    "user-label": "اسم االمستخدم",
+    "password-label": " كلمة المرور",
+    "LogintoSystem": "تسجيل الدخول",
+    "Typeyouruserinformation": "اكتب معلومات المستخدم الخاصة بك",
+    "connect": "تسجيل الدخول",
+    "SignIn": " تسجيل الدخول"
+  },
+
+  "common": {
+    "btn-edit": "تعديل",
+    "btn-add": "خلق جديد إبداع جديد",
+    "btn-del": "حذف"
+  },
+
+  "add-sponsor-modal": {
+    "title": "إضافة راعي جديد"
+  },
+
+  "copyright": "كل الحقوق محفوظة. {{currentYear}} {{company}}"
+}

@@ -1,20 +1,16 @@
-#nav, #logo
-{
-    transition: .7s;
+#nav,
+#logo {
+  transition: 0.7s;
 }
 
-
 .back {
-  background: #3C8DBC !important;
-
+  background: #3c8dbc !important;
 }
 .right {
   justify-content: right;
 }
 
-li{
+li {
   display: inline-block;
   list-style-type: none;
-
 }
-

@@ -1,41 +1,44 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  NgForm,
+  Validators,
+} from '@angular/forms';
 import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit {
-
- // @ViewChild('contactForm') loginForm!: NgForm;
+  // @ViewChild('contactForm') loginForm!: NgForm;
   // username: string = ''
   // password: string = ''
-  loginForm! : FormGroup;
+  loginForm!: FormGroup;
 
-  constructor(
-    public fb: FormBuilder,
-    private router: Router) { }
+  constructor(public fb: FormBuilder, private router: Router) {}
 
   ngOnInit(): void {
     this.loginForm = new FormGroup({
       username: new FormControl('', Validators.required),
-      password: new FormControl('', Validators.required)
-    })
+      password: new FormControl('', Validators.required),
+    });
   }
 
-  get username() 
-  { 
-    return this.loginForm.get('username'); 
+  get username() {
+    return this.loginForm.get('username');
   }
 
-  get password() 
-  { 
-    return this.loginForm.get('password'); 
+  get password() {
+    return this.loginForm.get('password');
   }
 
-  get f() { return this.loginForm.controls; }
+  get f() {
+    return this.loginForm.controls;
+  }
 
   public validate(): void {
     if (this.loginForm.invalid) {
@@ -46,12 +49,11 @@ export class LoginComponent implements OnInit {
     }
   }
 
-  onSubmit(){
+  onSubmit() {
     // debugger;
-    console.log("ifo ", this.username, " ", this.password)
+    console.log('ifo ', this.username, ' ', this.password);
     //this.notShow=true;
     //this.router.navigate(['admin-page'])
-    this.router.navigate(['dashboard'])
+    this.router.navigate(['dashboard']);
   }
-
 }

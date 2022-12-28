@@ -1,149 +1,158 @@
 {
-    "nav-bar": {
-      "nav-item": {
-        "home": "Home",
-        "sponsor": "Sponsors",
-        "orphans":"Orphans"
-      },
-      "search": {
-        "name": "Search",
-        "label": "Search",
-        "placeholder": "Search"
+  "nav-bar": {
+    "nav-item": {
+      "logout": "Log out",
+      "dashboard": "Dashboard",
+      "administration": "Administration"
+    },
+    "search": {
+      "name": "Search",
+      "label": "Search",
+      "placeholder": "Search"
+    }
+  },
+
+  "dashboard-page": {
+    "numberOfOrphans": "number of orphans",
+    "numberOfSponsors": "number of Sponsors",
+    "numberOfFamilies": "number of Families",
+    "tableData": {
+      "orphans": "Orphans",
+      "sponsors": "Sponsors",
+      "families": "Families",
+      "isPaid": "Paid or not",
+      "helpStartDate": " Help Start Date",
+      "WaisenpatenschaftFormel": "WaisenpatenschaftFormel"
+    }
+  },
+
+  "landing-page": {
+    "main-heading": "Welcome To Admin Dashboard",
+    "dashboard-heading": "Admin Dashboard",
+    "orphans-list": "Orphans List",
+    "orphans-total": "Total Orphans",
+    "sponsors-total": "Total Sponsors",
+    "sponsors-list": "Sponsors List",
+    "view-details": "View Details",
+    "top-sponsors": "Top Sponsors",
+    "add-new-orphan": "Add New Orphan",
+    "add-new-sponsor": "Add New Sponsor",
+    "sponsor-table": {
+      "headings": {
+        "fullname": "Full Name",
+        "address": "Address",
+        "action": "Action",
+        "familyname": "Family Name",
+        "profession": "Profession",
+        "SpDeathDate": "Father's Date of Birth"
       }
-    },
+    }
+  },
 
-    "landing-page": {
+  "modal-form": {
+    "AddNewOrphan": "Add New Orphan",
+    "UpdateOrphan": "Update Orphan",
+    "fillallfields": "Please fill out all fields",
+    "UploadfamilyImage": "Upload family Image",
+    "SelectedImage": "Selected Image",
+    "FamilyName": "Family Name",
+    "enterValidFamilyName": "Please enter a valid family",
+    "MotherlastName": "Mother Name",
+    "MotherFirstName": "Mother First Name",
+    "profession": "Profession",
+    "NumberOfOrphans": "Number of Orphans",
+    "SpDeathDate": "Date of Father's Death",
+    "Address": "Address",
+    "MaternalHealthStatus": "Maternal Health Status",
+    "AcademicLevel": "Academic Level",
 
-      "main-heading": "Welcome To Admin Dashboard",
-      "dashboard-heading":"Admin Dashboard",
-      "orphans-list": "Orphans List",
-      "orphans-total": "Total Orphans",
-      "sponsors-total": "Total Sponsors",
-      "sponsors-list": "Sponsors List",
-      "view-details": "View Details",
-      "top-sponsors": "Top Sponsors",
-      "add-new-orphan": "Add New Orphan",
-      "add-new-sponsor": "Add New Sponsor",
-      "sponsor-table": {
-          "headings": {
-              "fullname": "Full Name",
-              "address": "Address",
-              "action": "Action",
-              "familyname": "Family Name",
-              "profession": "Profession",
-              "SpDeathDate":"Father's Date of Birth"
-          }
-      }
+    "PleaseEnterValidMotherName": "Please enter a valid mother name",
+    "PleaseEnterValidProfession": "Please enter valid profession",
+    "PleaseEnterNumberOfOrphans": "Please enter the number of orphans",
+    "PleaseEnterAddress": "Please enter address",
+    "PleaseEnterSpDeathDate": "Please enter father's death date",
+    "Pleaseentervalidfamilyname": "Please enter valid family name",
+    "PleaseentervalidPersonalIDCard": "Please enter valid Personal ID Card",
+    "PleaseentervalidTelephoneNumber": "Please enter valid Telephone Number",
+    "Pleasefillallthefields": "Please fill all the fields",
 
-    },
+    "PleaseEnterValidFirstName": "Please enter a valid first name",
+    "PleaseEnterValidLastName": "Please enter valid last name",
+    "PleaseEnterValidEmail": "Please enter a valid email",
+    "PleaseEnterFamilyAssisted": "Please enter family assisted",
+    "PleaseEnterFamilyHelped": "Please enter family helped",
+    "PleaseenterHelpedType": "Please enter help type",
+    "PleaseenterContributionAmount": "Please enter contribution amount",
+    "PleaseenterPaid": "Please enter paid status",
 
-    "modal-form": {
-      "AddNewOrphan":"Add New Orphan",
-      "UpdateOrphan":"Update Orphan",
-      "fillallfields":"Please fill out all fields",
-      "UploadfamilyImage":"Upload family Image",
-      "SelectedImage":"Selected Image",
-      "FamilyName":"Family Name",
-      "enterValidFamilyName":"Please enter a valid family",
-      "MotherlastName":"Mother Name",
-      "MotherFirstName": "Mother First Name",
-      "profession":"Profession",
-      "NumberOfOrphans":"Number of Orphans",
-      "SpDeathDate":"Date of Father's Death",
-      "Address":"Address",
-      "MaternalHealthStatus":"Maternal Health Status",
-      "AcademicLevel":"Academic Level" ,
+    "PleaseenterUsername": "Please enter a valid username",
+    "PleaseenterPassword": "Please enter your password",
 
-      "PleaseEnterValidMotherName":"Please enter a valid mother name",
-      "PleaseEnterValidProfession":"Please enter valid profession",
-      "PleaseEnterNumberOfOrphans":"Please enter the number of orphans",
-      "PleaseEnterAddress":"Please enter address",
-      "PleaseEnterSpDeathDate":"Please enter father's death date",
-      "Pleaseentervalidfamilyname":"Please enter valid family name",
-      "PleaseentervalidPersonalIDCard":"Please enter valid Personal ID Card",
-      "PleaseentervalidTelephoneNumber":"Please enter valid Telephone Number",
-      "Pleasefillallthefields":"Please fill all the fields",
+    "AddOrphan": "Add orphan",
+    "deleteOrphan": "Delete Orphan",
+    "DeleteSponsor": "Delete Sponsor",
+    "Orphans": "Orphans",
+    "Orphan": "Orphan",
+    "OrphanName": "Orphan Name",
+    "OrphanFirstName": "First Name",
+    "Orphanbirthday": "Orphan birthdate",
+    "OrphanAcademicLevel": "Academic Level",
+    "Notes": "Notes",
+    "HealthStatus": "Health Status",
+    "ResidentialStatus": "Residential Status",
+    "NumberOfPeople": "Number Of People",
+    "SocialCare": "Social Care",
+    "povertyIndex": "poverty Index",
+    "GodFatherType": "God Father Type",
 
-      "PleaseEnterValidFirstName":"Please enter a valid first name",
-      "PleaseEnterValidLastName":"Please enter valid last name",
-      "PleaseEnterValidEmail":"Please enter a valid email",
-      "PleaseEnterFamilyAssisted":"Please enter family assisted",
-      "PleaseEnterFamilyHelped":"Please enter family helped",
-      "PleaseenterHelpedType":"Please enter help type",
-      "PleaseenterContributionAmount":"Please enter contribution amount",
-      "PleaseenterPaid":"Please enter paid status",
-      
-      "PleaseenterUsername":"Please enter a valid username",
-      "PleaseenterPassword":"Please enter your password",
+    "PleaseEnterName": "Please enter the orphan name",
+    "PleaseEnterValidMotherFirstName": "Please enter valid Mother First Name",
+    "PleaseentervalidMotherLastName": "Please enter valid Mother Last Name",
+    "PleaseentervalidMaternalHealthStatus": "Please enter valid Maternal Health Status",
+    "PleaseEnterDateOfOrphanbirthday": "Please enter the orphan's birthday",
+    "PleaseEnterOrphanAcademicLevel": "Please enter the orphan's academic level",
+    "PleaseenterfirstName": "Please enter first Name",
+    "PleaseenterHealthStatus": "Please enter Health Status",
+    "PleaseenterResidentialStatus": "Please enter Residential Status",
+    "PleaseenterNumberOfPeople": "Please enter Number Of People",
+    "Pleaseenterearnings": "Please enter poverty Index",
+    "Pleaseenteracademiclevel": "Please enter academic level",
 
+    "SelectAttachmentDocs": "Select attachment documents",
+    "SelectedFiles": "Selected Files",
+    "AreYouSureYouWanttoDelete": "Are You Sure You Want to Delete?",
 
-      "AddOrphan":"Add orphan",
-      "deleteOrphan":"Delete Orphan",
-      "DeleteSponsor":"Delete Sponsor",
-      "Orphans":"Orphans",
-      "Orphan":"Orphan",
-      "OrphanName":"Orphan Name",
-      "OrphanFirstName":"First Name",
-      "Orphanbirthday":"Orphan birthdate",
-      "OrphanAcademicLevel":"Academic Level",
-      "Notes":"Notes",
-      "HealthStatus":"Health Status",
-      "ResidentialStatus":"Residential Status",
-      "NumberOfPeople":"Number Of People",
-      "SocialCare":"Social Care",
-      "povertyIndex":"poverty Index",
-      "GodFatherType":"God Father Type",
+    "Spfullname": "Full Name",
+    "SpFirstName": "First Name",
+    "SpLastName": "Last Name",
+    "PersonalIDCard": "Personal ID",
+    "Phone": "Telephone No.",
+    "Mail": "E-Mail",
+    "NameofFamilyAssisted": "Name of Family Assisted",
+    "NrofFamilyHelped": "Number of Family Helped",
+    "HelpType": "Help Type",
+    "ContributionAmount": "Contribution Amount",
+    "PaidStatus": "Paid (Yes/No)",
+    "UpdateSponsor": "Update Sponsor",
+    "AddNewSponsor": "Add New Sponsor",
+    "Sponsored": "Sponsored",
+    "ChangePhoto": "Change Photo",
+    "helpstartdate": "Help Start Date",
+    "PaidYesOrNo": "Paid? Yes Or No",
+    "TheAmountPaid": "the Amount Paid",
+    "TheAmountSpent": "The Amount Spent",
 
-      "PleaseEnterName":"Please enter the orphan name",
-      "PleaseEnterValidMotherFirstName": "Please enter valid Mother First Name",
-      "PleaseentervalidMotherLastName": "Please enter valid Mother Last Name",
-      "PleaseentervalidMaternalHealthStatus":"Please enter valid Maternal Health Status",
-      "PleaseEnterDateOfOrphanbirthday":"Please enter the orphan's birthday",
-      "PleaseEnterOrphanAcademicLevel":"Please enter the orphan's academic level",
-      "PleaseenterfirstName":"Please enter first Name",
-      "PleaseenterHealthStatus":"Please enter Health Status",
-      "PleaseenterResidentialStatus":"Please enter Residential Status",
-      "PleaseenterNumberOfPeople":"Please enter Number Of People",
-      "Pleaseenterearnings":"Please enter poverty Index",
-      "Pleaseenteracademiclevel":"Please enter academic level",
-     
-
-      "SelectAttachmentDocs":"Select attachment documents",
-      "SelectedFiles":"Selected Files",
-      "AreYouSureYouWanttoDelete":"Are You Sure You Want to Delete?",
-
-      "Spfullname": "Full Name",
-      "SpFirstName":"First Name",
-      "SpLastName":"Last Name",
-      "PersonalIDCard":"Personal ID",
-      "Phone":"Telephone No.",
-      "Mail":"E-Mail",
-      "NameofFamilyAssisted":"Name of Family Assisted",
-      "NrofFamilyHelped":"Number of Family Helped",
-      "HelpType":"Help Type",
-      "ContributionAmount":"Contribution Amount",
-      "PaidStatus":"Paid (Yes/No)",
-      "UpdateSponsor":"Update Sponsor",
-      "AddNewSponsor":"Add New Sponsor",
-      "Sponsored":"Sponsored",
-      "ChangePhoto":"Change Photo",
-      "helpstartdate":"Help Start Date",
-      "PaidYesOrNo":"Paid? Yes Or No",
-      "TheAmountPaid":"the Amount Paid",
-      "TheAmountSpent":"The Amount Spent",
-
-      "Data":"Data",
-      "Nr":"Nr",
-      "Close":"Close",
-      "SaveDetails":"Save",
-      "Details":"Details",
-      "Delete":"Delete",
-      "AboutMother":"About Mother",
-      "AboutSponsor":"About Sponsor",
-      "Attachments":"Attachments",
-      "GoBack":"Go Back"
-     
-    },
+    "Data": "Data",
+    "Nr": "Nr",
+    "Close": "Close",
+    "SaveDetails": "Save",
+    "Details": "Details",
+    "Delete": "Delete",
+    "AboutMother": "About Mother",
+    "AboutSponsor": "About Sponsor",
+    "Attachments": "Attachments",
+    "GoBack": "Go Back"
+  },
 
   "login-page": {
     "user-label": "User Name",
@@ -152,19 +161,17 @@
     "Typeyouruserinformation": "Type your user information",
     "connect": "Login",
     "SignIn": "LogIn"
-
   },
 
-    "common": {
-      "btn-edit": "Edit",
-      "btn-add": "CREATE NEW",
-      "btn-del": "Delete"
-    },
+  "common": {
+    "btn-edit": "Edit",
+    "btn-add": "CREATE NEW",
+    "btn-del": "Delete"
+  },
 
-    "add-sponsor-modal": {
-      "title": "Add New Sponsor"
-    },
+  "add-sponsor-modal": {
+    "title": "Add New Sponsor"
+  },
 
-    "copyright": "All rights reserved. {{currentYear}} {{company}}"
-  
-  }
+  "copyright": "All rights reserved. {{currentYear}} {{company}}"
+}

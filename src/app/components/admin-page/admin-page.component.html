@@ -1,416 +1,693 @@
+<Sponsorship-top-nav></Sponsorship-top-nav>
+
 <div class="con" id="inner">
   <div class="row">
     <h1 class="text-center">{{ "landing-page.main-heading" | translate }}</h1>
-
   </div>
 
+  <div class="row user-list p-5">
+    <h2 class="text-center m-3">
+      {{ "landing-page.orphans-list" | translate }}
+    </h2>
+    <button
+      class="btn btn-primary m-3"
+      data-bs-toggle="modal"
+      data-bs-target="#addOrphanModal"
+    >
+      + {{ "landing-page.add-new-orphan" | translate }}
+    </button>
 
-<div class="row user-list p-5">
+    <input
+      style="width: 200px; border: 2px solid black"
+      type="text"
+      class="form-control m-4"
+      [placeholder]="'nav-bar.search.placeholder' | translate"
+      [(ngModel)]="filterTermOrphan"
+    />
+    <div class="table-responsive m-3">
+      <table class="table table-info table-striped table-primary">
+        <thead style="color: black">
+          <th>S.No</th>
+          <th style="min-width: 114px">
+            {{ "landing-page.sponsor-table.headings.familyname" | translate }}
+          </th>
+          <th style="min-width: 114px">
+            {{ "modal-form.MotherFirstName" | translate }}
+          </th>
+          <th style="min-width: 115px">
+            {{ "landing-page.sponsor-table.headings.address" | translate }}
+          </th>
+          <th style="min-width: 131px">
+            {{ "landing-page.sponsor-table.headings.profession" | translate }}
+          </th>
+          <th style="min-width: 125px">
+            {{ "landing-page.sponsor-table.headings.SpDeathDate" | translate }}
+          </th>
+        </thead>
 
-  <h2 class="text-center m-3">{{ 'landing-page.orphans-list' | translate }}</h2>
-  <button class="btn btn-primary m-3" data-bs-toggle="modal" data-bs-target="#addOrphanModal">+ {{ 'landing-page.add-new-orphan' | translate }}</button>
-  
-  <input style="width: 200px; border: 2px solid black;" type="text" class="form-control m-4" 
-  [placeholder]="'nav-bar.search.placeholder' | translate" [(ngModel)]="filterTermOrphan"/>
-  <div class="table-responsive m-3">
-    <table class="table table-info table-striped table-primary">
-      <thead style="color: black;">
-        <th>S.No</th>
-        <th style="min-width: 114px;">{{ 'landing-page.sponsor-table.headings.familyname' | translate }}</th>
-        <th style="min-width: 114px;">{{ 'modal-form.MotherFirstName' | translate }}</th>
-        <th style="min-width: 115px;">{{ 'landing-page.sponsor-table.headings.address' | translate }}</th>
-        <th style="min-width: 131px;">{{ 'landing-page.sponsor-table.headings.profession' | translate }}</th>
-        <th style="min-width: 125px;">{{ 'landing-page.sponsor-table.headings.SpDeathDate'  | translate}}</th>
-        
-      </thead>
-
-      <tbody>
-        <tr *ngFor="let user of userList | filter: filterTermOrphan | paginate: { itemsPerPage: 5, currentPage: p }; let i = index">
-          <td>{{i+1}}</td>
-          <td>{{user.familyName}}</td>
-          <td>{{user.motherName}}</td>
-          <td>{{user.address}}</td>
-          <td>{{user.profession}}</td>
-          <td>{{user.spouseDeathDate | date }}</td>
-          <td>
-             <span>
-              <button class="btn btn-primary btn-xs" routerLink="/profile">{{ 'modal-form.Details' | translate }}</button>
-              <img class="m-1" width="20px" height="20px" (click)="openUpdateOrphanMoal(user)" data-bs-toggle="modal" data-bs-target="#addOrphanModal" src="assets/edit-icon.png">
-              <img  width="20px" height="20px" data-bs-toggle="modal" data-bs-target="#deleteOrphanModal" src="assets/delete-icon.webp">
-              <!-- <button class="btn btn-xs btn-warning">{{ 'common.btn-edit' | translate }}</button>
+        <tbody>
+          <tr
+            *ngFor="
+              let user of userList
+                | filter: filterTermOrphan
+                | paginate: { itemsPerPage: 5, currentPage: p };
+              let i = index
+            "
+          >
+            <td>{{ i + 1 }}</td>
+            <td>{{ user.familyName }}</td>
+            <td>{{ user.motherName }}</td>
+            <td>{{ user.address }}</td>
+            <td>{{ user.profession }}</td>
+            <td>{{ user.spouseDeathDate | date }}</td>
+            <td>
+              <span>
+                <button class="btn btn-primary btn-xs" routerLink="/profile">
+                  {{ "modal-form.Details" | translate }}
+                </button>
+                <img
+                  class="m-1"
+                  width="20px"
+                  height="20px"
+                  (click)="openUpdateOrphanMoal(user)"
+                  data-bs-toggle="modal"
+                  data-bs-target="#addOrphanModal"
+                  src="assets/edit-icon.png"
+                />
+                <img
+                  width="20px"
+                  height="20px"
+                  data-bs-toggle="modal"
+                  data-bs-target="#deleteOrphanModal"
+                  src="assets/delete-icon.webp"
+                />
+                <!-- <button class="btn btn-xs btn-warning">{{ 'common.btn-edit' | translate }}</button>
             <button class="btn btn-xs btn-danger m-1">{{ 'common.btn-del' | translate }}</button> -->
-          </span> 
-          </td>
-        </tr>
-      </tbody>
-    </table>
-    <div class="justify-center" style="float: right;">               
-      <pagination-controls (pageChange)="p = $event"></pagination-controls>
+              </span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="justify-center" style="float: right">
+        <pagination-controls (pageChange)="p = $event"></pagination-controls>
+      </div>
     </div>
   </div>
 
-</div>
+  <div class="row product-list m-3 p-5">
+    <h2 class="text-center">{{ "landing-page.sponsors-list" | translate }}</h2>
+    <button
+      class="btn btn-primary m-4"
+      data-bs-toggle="modal"
+      data-bs-target="#addSponsorModal"
+    >
+      + {{ "landing-page.add-new-sponsor" | translate }}
+    </button>
 
-<div class="row product-list m-3 p-5">
-  <h2 class="text-center">{{ 'landing-page.sponsors-list' | translate }}</h2>
-  <button class="btn btn-primary m-4" data-bs-toggle="modal" data-bs-target="#addSponsorModal">+ {{ 'landing-page.add-new-sponsor' | translate }}</button>
-  
-  <input style="width: 200px; border: 2px solid black;" type="text" class="form-control m-4" [placeholder]="'nav-bar.search.placeholder' | translate" [(ngModel)]="filterTermSponsor"
-  />
-  <div class="table-responsive m-4">
-    <table class="table table-info table-striped table-primary" >
-      <thead style="color: black;">
-        <th>S.No</th>
-        <th style="min-width: 114px;">{{ 'modal-form.Spfullname' | translate }}</th>
-        <!--<th style="min-width: 114px;">{{ 'modal-form.PersonalIDCard' | translate }}</th>-->
-        <th style="min-width: 125px;">{{ 'modal-form.Address' | translate }}</th>
-        <th style="min-width: 125px;">{{ 'modal-form.Phone' | translate }}</th>
-        <th style="min-width: 125px;">{{ 'modal-form.Mail' | translate }}</th>
-        <th style="min-width: 114px;">{{ 'modal-form.helpstartdate' | translate }}</th>
-        
-      </thead>
+    <input
+      style="width: 200px; border: 2px solid black"
+      type="text"
+      class="form-control m-4"
+      [placeholder]="'nav-bar.search.placeholder' | translate"
+      [(ngModel)]="filterTermSponsor"
+    />
+    <div class="table-responsive m-4">
+      <table class="table table-info table-striped table-primary">
+        <thead style="color: black">
+          <th>S.No</th>
+          <th style="min-width: 114px">
+            {{ "modal-form.Spfullname" | translate }}
+          </th>
+          <!--<th style="min-width: 114px;">{{ 'modal-form.PersonalIDCard' | translate }}</th>-->
+          <th style="min-width: 125px">
+            {{ "modal-form.Address" | translate }}
+          </th>
+          <th style="min-width: 125px">{{ "modal-form.Phone" | translate }}</th>
+          <th style="min-width: 125px">{{ "modal-form.Mail" | translate }}</th>
+          <th style="min-width: 114px">
+            {{ "modal-form.helpstartdate" | translate }}
+          </th>
+        </thead>
 
-      <tbody>
-        <tr *ngFor="let user of sponsorList | filter: filterTermSponsor; let i = index">
-          <td>{{i+1}}</td>
-          <td>{{user.firstName}}</td>
-          <td>{{user.address}}</td>
-          <td>{{user.telephoneNumber}}</td>
-          <td>{{user.email}}</td>
-          <td>{{user.helpstartdate}}</td>
-          <td> <span>
-            <button class="btn btn-primary btn-xs" routerLink="/sponsor-profile">{{ 'modal-form.Details' | translate }}</button>
-            <img class="m-1" width="20px" height="20px" (click)="openUpdateSponsorMoal(user)" data-bs-toggle="modal" data-bs-target="#addSponsorModal" src="assets/edit-icon.png">
-            <img  width="20px" height="20px" data-bs-toggle="modal" data-bs-target="#deleteSponsorModal" src="assets/delete-icon.webp">
+        <tbody>
+          <tr
+            *ngFor="
+              let user of sponsorList | filter: filterTermSponsor;
+              let i = index
+            "
+          >
+            <td>{{ i + 1 }}</td>
+            <td>{{ user.firstName }}</td>
+            <td>{{ user.address }}</td>
+            <td>{{ user.telephoneNumber }}</td>
+            <td>{{ user.email }}</td>
+            <td>{{ user.helpstartdate }}</td>
+            <td>
+              <span>
+                <button
+                  class="btn btn-primary btn-xs"
+                  routerLink="/sponsor-profile"
+                >
+                  {{ "modal-form.Details" | translate }}
+                </button>
+                <img
+                  class="m-1"
+                  width="20px"
+                  height="20px"
+                  (click)="openUpdateSponsorMoal(user)"
+                  data-bs-toggle="modal"
+                  data-bs-target="#addSponsorModal"
+                  src="assets/edit-icon.png"
+                />
+                <img
+                  width="20px"
+                  height="20px"
+                  data-bs-toggle="modal"
+                  data-bs-target="#deleteSponsorModal"
+                  src="assets/delete-icon.webp"
+                />
 
-            <!-- <button class="btn btn-xs btn-warning">{{ 'common.btn-edit' | translate }}</button>
+                <!-- <button class="btn btn-xs btn-warning">{{ 'common.btn-edit' | translate }}</button>
             <button class="btn btn-xs btn-danger m-1">{{ 'common.btn-del' | translate }}</button> -->
-          </span> </td>
-        </tr>
-      </tbody>
-    </table>
-    <div class="justify-center" style="float: right;">               
-      <pagination-controls (pageChange)="p = $event"></pagination-controls>
+              </span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="justify-center" style="float: right">
+        <pagination-controls (pageChange)="p = $event"></pagination-controls>
+      </div>
     </div>
   </div>
-
 </div>
-
-
-
-</div>
-
-
 
 <!-- Delete Orphan Modal ALERT WINDOW-->
-<div class="modal fade" id="deleteOrphanModal" data-bs-backdrop="static"  tabindex="-1" aria-labelledby="deleteUserModalLabel" aria-hidden="true">
-<div class="modal-dialog">
-<div class="modal-content">
-<div class="modal-header">
-<h5 class="modal-title" id="deleteUserModalLabel">{{ 'modal-form.deleteOrphan' | translate }}</h5>
-<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+<div
+  class="modal fade"
+  id="deleteOrphanModal"
+  data-bs-backdrop="static"
+  tabindex="-1"
+  aria-labelledby="deleteUserModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="deleteUserModalLabel">
+          {{ "modal-form.deleteOrphan" | translate }}
+        </h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        {{ "modal-form.AreYouSureYouWanttoDelete" | translate }}
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          {{ "modal-form.Close" | translate }}
+        </button>
+        <button
+          type="button"
+          class="btn btn-danger"
+          data-bs-dismiss="modal"
+          (click)="delOrphan()"
+        >
+          {{ "modal-form.Delete" | translate }}
+        </button>
+      </div>
+    </div>
+  </div>
 </div>
-<div class="modal-body">
-{{ 'modal-form.AreYouSureYouWanttoDelete' | translate }}
-</div>
-<div class="modal-footer">
-<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ 'modal-form.Close' | translate }}</button>
-<button type="button" class="btn btn-danger" data-bs-dismiss="modal" (click)="delOrphan()">{{ 'modal-form.Delete' | translate }}</button>
-</div>
-</div>
-</div>
-</div>
-
 
 <!-- Delete Sponsor Modal -->
-<div class="modal fade" id="deleteSponsorModal" data-bs-backdrop="static"  tabindex="-1" aria-labelledby="deleteSponsorModalLabel" aria-hidden="true">
-<div class="modal-dialog">
-<div class="modal-content">
-<div class="modal-header">
-<h5 class="modal-title" id="deleteSponsorModalLabel">{{ 'modal-form.DeleteSponsor' | translate }}</h5>
-<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+<div
+  class="modal fade"
+  id="deleteSponsorModal"
+  data-bs-backdrop="static"
+  tabindex="-1"
+  aria-labelledby="deleteSponsorModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="deleteSponsorModalLabel">
+          {{ "modal-form.DeleteSponsor" | translate }}
+        </h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        {{ "modal-form.AreYouSureYouWanttoDelete" | translate }}?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          {{ "modal-form.Close" | translate }}
+        </button>
+        <button
+          type="button"
+          class="btn btn-danger"
+          data-bs-dismiss="modal"
+          (click)="delSponsor()"
+        >
+          {{ "modal-form.Delete" | translate }}
+        </button>
+      </div>
+    </div>
+  </div>
 </div>
-<div class="modal-body">
-{{ 'modal-form.AreYouSureYouWanttoDelete' | translate }}?
-</div>
-<div class="modal-footer">
-<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ 'modal-form.Close' | translate }}</button>
-<button type="button" class="btn btn-danger" data-bs-dismiss="modal" (click)="delSponsor()">{{ 'modal-form.Delete' | translate }}</button>
-</div>
-</div>
-</div>
-</div>
-
-
-
-
-
-
 
 <!-- Modal -->
-<div class="modal fade" id="addOrphanModal" data-bs-backdrop="static"  tabindex="-1" aria-labelledby="addUserModalLabel" aria-hidden="true">
-<div class="modal-dialog modal-lg">
-<div class="modal-content">
-<div class="modal-header">
-<h5 class="modal-title" id="addUserModalLabel" *ngIf="!isUpdateOrphan">{{ 'modal-form.AddNewOrphan' | translate }}</h5>
-<h5 class="modal-title" id="addUserModalLabel" *ngIf="isUpdateOrphan">{{ 'modal-form.UpdateOrphan' | translate }}</h5>
-<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="closeUpdateOrphanMoal()"></button>
-</div><div class="modal-body">
-<h5>{{ 'modal-form.fillallfields' | translate }}</h5>
-<form [formGroup]="orphanForm">
-  
-  <div class="row">
-    <div class="col-md-5">
-      <label>{{ 'modal-form.UploadfamilyImage' | translate }}</label>
-      <input class="form-control" type="file" (change)="onSelectImage($event)"> <br>
-      <div class="attachments" *ngIf="motherImage">
-        <strong>:{{ 'modal-form.SelectedImage' | translate }}</strong>
-            <div class="cross text-danger fw-bold" (click)="removeAttachment()">
-              X
-            </div>
-            <img class="m-2" src="{{motherImage.fileBytes}}" width="70px" height="70px">
-      </div><br>
-    </div>
-    <div class="col-md-5 offset-md-1">
-      <label>{{ 'modal-form.SelectAttachmentDocs'| translate }} </label>
-      <input class="form-control" type="file" (change)="onSelectFile($event)"> <br>
-      <div class="attachments" *ngIf="attachments.length">
-        <strong>:{{ 'modal-form.SelectedFiles' | translate }}</strong>
-        <ul>
-          <li *ngFor="let attachment of attachments">
-            <div class="cross text-danger fw-bold" (click)="removeAttachment()">
-              X
-            </div>
-            <img class="m-2" src="{{attachment.fileBytes}}" width="70px" height="70px">
-          </li>
-        </ul>
-      </div><br>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-5">
-      <label>{{ 'modal-form.FamilyName' | translate }}</label>
-      <input type="text" class="form-control" 
-      formControlName="familyName"
-      [class.is-invalid]="
-        getFormProperty('familyName')?.invalid &&
-        (getFormProperty('familyName')?.touched ||
-          getFormProperty('familyName')?.dirty)
-      ">
-      <div class="invalid-feedback">{{ 'modal-form.Pleaseentervalidfamilyname' | translate }}</div>
-    </div><br>
-    <div class="col-md-5 offset-md-1">
-      <label>{{ 'modal-form.MotherFirstName' | translate }}</label>
-      <input type="text" class="form-control"
-      formControlName="motherFirstName"
-      [class.is-invalid]="
-        getFormProperty('motherFirstName')?.invalid &&
-        (getFormProperty('motherFirstName')?.touched ||
-          getFormProperty('motherFirstName')?.dirty)
-      ">
-      <div class="invalid-feedback">{{ 'modal-form.PleaseEnterValidMotherFirstName' | translate }}</div>
-    </div>
-  </div><br>
-  <div class="row">
-    <div class="col-md-5">
-      <label>{{ 'modal-form.MotherlastName' | translate }}</label>
-      <input type="text" class="form-control" 
-      formControlName="motherName"
-      [class.is-invalid]="
-        getFormProperty('motherName')?.invalid &&
-        (getFormProperty('motherName')?.touched ||
-          getFormProperty('motherName')?.dirty)
-      ">
-      <div class="invalid-feedback">{{ 'modal-form.PleaseentervalidMotherLastName' | translate }}</div>
-    </div><br>
-    <div class="col-md-5 offset-md-1">
-      <label>{{ 'modal-form.PersonalIDCard' | translate }} </label>
-      <input type="text" class="form-control" 
-      formControlName="personalIdCard"
-      [class.is-invalid]="
-        getFormProperty('personalIdCard')?.invalid &&
-        (getFormProperty('personalIdCard')?.touched ||
-          getFormProperty('personalIdCard')?.dirty)
-      ">
-      <div class="invalid-feedback">{{ 'modal-form.PleaseentervalidPersonalIDCard' | translate }}</div>
-    </div>
-    
-  </div><br>
-  <div class="row">
-    <div class="col-md-5">
-      <label>{{ 'modal-form.MaternalHealthStatus' | translate }}</label>
-      <input type="text" class="form-control"
-      formControlName="maternalHealthStatus"
-      [class.is-invalid]="
-        getFormProperty('maternalHealthStatus')?.invalid &&
-        (getFormProperty('maternalHealthStatus')?.touched ||
-          getFormProperty('maternalHealthStatus')?.dirty)
-      ">
-      <div class="invalid-feedback">{{ 'modal-form.PleaseentervalidMaternalHealthStatus' | translate }}</div>
-    </div><br>
-    <div class="col-md-5 offset-md-1">
-      <label>{{ 'modal-form.Phone' | translate }}</label>
-      <input type="text" class="form-control"
-      formControlName="telephoneNumber"
-      [class.is-invalid]="
-        getFormProperty('telephoneNumber')?.invalid &&
-        (getFormProperty('telephoneNumber')?.touched ||
-          getFormProperty('telephoneNumber')?.dirty)
-      ">
-      <div class="invalid-feedback">{{ 'modal-form.PleaseentervalidTelephoneNumber' | translate }}</div>
-    </div>
-  </div><br>
-  <div class="row">
-    <div class="col-md-5">
-      <label>{{ 'modal-form.profession' | translate }} </label>
-      <input type="text" class="form-control"
-      formControlName="profession"
-      [class.is-invalid]="
-        getFormProperty('profession')?.invalid &&
-        (getFormProperty('profession')?.touched ||
-          getFormProperty('profession')?.dirty)
-      ">
-      <div class="invalid-feedback">{{ 'modal-form.PleaseEnterValidProfession' | translate }}</div>
-    </div><br>
-    <div class="col-md-5 offset-md-1">
-      <label>{{ 'modal-form.Address' | translate }}</label>
-      <input type="text" class="form-control"
-      formControlName="address"
-      [class.is-invalid]="
-        getFormProperty('address')?.invalid &&
-        (getFormProperty('address')?.touched ||
-          getFormProperty('address')?.dirty)
-      ">
-      <div class="invalid-feedback">{{ 'modal-form.PleaseEnterAddress' | translate }}</div>
-    </div>
-  </div><br>
-  <div class="row">
-    <div class="col-md-5">
-      <label> {{ 'modal-form.NumberOfOrphans' | translate }}</label>
-      <input type="number" class="form-control"
-      formControlName="numberOfOrphans">  
-    </div><br>
-    <div class="col-md-5 offset-md-1">
-      <label> {{ 'modal-form.NumberOfPeople' | translate }}</label>
-      <input type="number" class="form-control"
-      formControlName="numberOfOrphans">
-    </div>
-  </div><br>
-  <div class="row">
-    <div class="col-md-5">
-      <label>{{ 'modal-form.SpDeathDate' | translate }}</label>
-      <input type="datetime-local" class="form-control"
-      formControlName="spouseDeathDate"
-      [class.is-invalid]="
-        getFormProperty('spouseDeathDate')?.invalid &&
-        (getFormProperty('spouseDeathDate')?.touched ||
-          getFormProperty('spouseDeathDate')?.dirty)
-      ">
-      <div class="invalid-feedback">{{ 'modal-form.PleaseEnterSpDeathDate' | translate }}</div>
-    </div><br><br>
-    <div class="col-md-5 offset-md-1">
-      <label>{{ 'modal-form.povertyIndex' | translate }}</label>
-      <input type="text" class="form-control"
-      formControlName="earnings">
-    </div>
-  </div><br>
- 
-  <div class="row">
-    <div class="col-md-5">  
-      <label>{{ 'modal-form.ResidentialStatus' | translate }} </label>
-      <input type="text" class="form-control"
-      formControlName="residentialStatus">
-    </div><br><br>
-    <div class="col-md-5 offset-md-1">
-      <label>{{ 'modal-form.Notes' | translate }}</label>
-      <textarea class="form-control"></textarea>
-    </div><br>
-
-    <div class="row"></div>
-      <div class="col-md-5"> 
-       <label>{{ 'modal-form.GodFatherType' | translate }}</label>
-       <input type="text" class="form-control"
-       formControlName="godFatherType">      
+<div
+  class="modal fade"
+  id="addOrphanModal"
+  data-bs-backdrop="static"
+  tabindex="-1"
+  aria-labelledby="addUserModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="addUserModalLabel" *ngIf="!isUpdateOrphan">
+          {{ "modal-form.AddNewOrphan" | translate }}
+        </h5>
+        <h5 class="modal-title" id="addUserModalLabel" *ngIf="isUpdateOrphan">
+          {{ "modal-form.UpdateOrphan" | translate }}
+        </h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+          (click)="closeUpdateOrphanMoal()"
+        ></button>
       </div>
-    </div><br>
+      <div class="modal-body">
+        <h5>{{ "modal-form.fillallfields" | translate }}</h5>
+        <form [formGroup]="orphanForm">
+          <div class="row">
+            <div class="col-md-5">
+              <label>{{ "modal-form.UploadfamilyImage" | translate }}</label>
+              <input
+                class="form-control"
+                type="file"
+                (change)="onSelectImage($event)"
+              />
+              <br />
+              <div class="attachments" *ngIf="motherImage">
+                <strong>:{{ "modal-form.SelectedImage" | translate }}</strong>
+                <div
+                  class="cross text-danger fw-bold"
+                  (click)="removeAttachment()"
+                >
+                  X
+                </div>
+                <img
+                  class="m-2"
+                  src="{{ motherImage.fileBytes }}"
+                  width="70px"
+                  height="70px"
+                />
+              </div>
+              <br />
+            </div>
+            <div class="col-md-5 offset-md-1">
+              <label
+                >{{ "modal-form.SelectAttachmentDocs" | translate }}
+              </label>
+              <input
+                class="form-control"
+                type="file"
+                (change)="onSelectFile($event)"
+              />
+              <br />
+              <div class="attachments" *ngIf="attachments.length">
+                <strong>:{{ "modal-form.SelectedFiles" | translate }}</strong>
+                <ul>
+                  <li *ngFor="let attachment of attachments">
+                    <div
+                      class="cross text-danger fw-bold"
+                      (click)="removeAttachment()"
+                    >
+                      X
+                    </div>
+                    <img
+                      class="m-2"
+                      src="{{ attachment.fileBytes }}"
+                      width="70px"
+                      height="70px"
+                    />
+                  </li>
+                </ul>
+              </div>
+              <br />
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-5">
+              <label>{{ "modal-form.FamilyName" | translate }}</label>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="familyName"
+                [class.is-invalid]="
+                  getFormProperty('familyName')?.invalid &&
+                  (getFormProperty('familyName')?.touched ||
+                    getFormProperty('familyName')?.dirty)
+                "
+              />
+              <div class="invalid-feedback">
+                {{ "modal-form.Pleaseentervalidfamilyname" | translate }}
+              </div>
+            </div>
+            <br />
+            <div class="col-md-5 offset-md-1">
+              <label>{{ "modal-form.MotherFirstName" | translate }}</label>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="motherFirstName"
+                [class.is-invalid]="
+                  getFormProperty('motherFirstName')?.invalid &&
+                  (getFormProperty('motherFirstName')?.touched ||
+                    getFormProperty('motherFirstName')?.dirty)
+                "
+              />
+              <div class="invalid-feedback">
+                {{ "modal-form.PleaseEnterValidMotherFirstName" | translate }}
+              </div>
+            </div>
+          </div>
+          <br />
+          <div class="row">
+            <div class="col-md-5">
+              <label>{{ "modal-form.MotherlastName" | translate }}</label>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="motherName"
+                [class.is-invalid]="
+                  getFormProperty('motherName')?.invalid &&
+                  (getFormProperty('motherName')?.touched ||
+                    getFormProperty('motherName')?.dirty)
+                "
+              />
+              <div class="invalid-feedback">
+                {{ "modal-form.PleaseentervalidMotherLastName" | translate }}
+              </div>
+            </div>
+            <br />
+            <div class="col-md-5 offset-md-1">
+              <label>{{ "modal-form.PersonalIDCard" | translate }} </label>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="personalIdCard"
+                [class.is-invalid]="
+                  getFormProperty('personalIdCard')?.invalid &&
+                  (getFormProperty('personalIdCard')?.touched ||
+                    getFormProperty('personalIdCard')?.dirty)
+                "
+              />
+              <div class="invalid-feedback">
+                {{ "modal-form.PleaseentervalidPersonalIDCard" | translate }}
+              </div>
+            </div>
+          </div>
+          <br />
+          <div class="row">
+            <div class="col-md-5">
+              <label>{{ "modal-form.MaternalHealthStatus" | translate }}</label>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="maternalHealthStatus"
+                [class.is-invalid]="
+                  getFormProperty('maternalHealthStatus')?.invalid &&
+                  (getFormProperty('maternalHealthStatus')?.touched ||
+                    getFormProperty('maternalHealthStatus')?.dirty)
+                "
+              />
+              <div class="invalid-feedback">
+                {{
+                  "modal-form.PleaseentervalidMaternalHealthStatus" | translate
+                }}
+              </div>
+            </div>
+            <br />
+            <div class="col-md-5 offset-md-1">
+              <label>{{ "modal-form.Phone" | translate }}</label>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="telephoneNumber"
+                [class.is-invalid]="
+                  getFormProperty('telephoneNumber')?.invalid &&
+                  (getFormProperty('telephoneNumber')?.touched ||
+                    getFormProperty('telephoneNumber')?.dirty)
+                "
+              />
+              <div class="invalid-feedback">
+                {{ "modal-form.PleaseentervalidTelephoneNumber" | translate }}
+              </div>
+            </div>
+          </div>
+          <br />
+          <div class="row">
+            <div class="col-md-5">
+              <label>{{ "modal-form.profession" | translate }} </label>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="profession"
+                [class.is-invalid]="
+                  getFormProperty('profession')?.invalid &&
+                  (getFormProperty('profession')?.touched ||
+                    getFormProperty('profession')?.dirty)
+                "
+              />
+              <div class="invalid-feedback">
+                {{ "modal-form.PleaseEnterValidProfession" | translate }}
+              </div>
+            </div>
+            <br />
+            <div class="col-md-5 offset-md-1">
+              <label>{{ "modal-form.Address" | translate }}</label>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="address"
+                [class.is-invalid]="
+                  getFormProperty('address')?.invalid &&
+                  (getFormProperty('address')?.touched ||
+                    getFormProperty('address')?.dirty)
+                "
+              />
+              <div class="invalid-feedback">
+                {{ "modal-form.PleaseEnterAddress" | translate }}
+              </div>
+            </div>
+          </div>
+          <br />
+          <div class="row">
+            <div class="col-md-5">
+              <label> {{ "modal-form.NumberOfOrphans" | translate }}</label>
+              <input
+                type="number"
+                class="form-control"
+                formControlName="numberOfOrphans"
+              />
+            </div>
+            <br />
+            <div class="col-md-5 offset-md-1">
+              <label> {{ "modal-form.NumberOfPeople" | translate }}</label>
+              <input
+                type="number"
+                class="form-control"
+                formControlName="numberOfOrphans"
+              />
+            </div>
+          </div>
+          <br />
+          <div class="row">
+            <div class="col-md-5">
+              <label>{{ "modal-form.SpDeathDate" | translate }}</label>
+              <input
+                type="datetime-local"
+                class="form-control"
+                formControlName="spouseDeathDate"
+                [class.is-invalid]="
+                  getFormProperty('spouseDeathDate')?.invalid &&
+                  (getFormProperty('spouseDeathDate')?.touched ||
+                    getFormProperty('spouseDeathDate')?.dirty)
+                "
+              />
+              <div class="invalid-feedback">
+                {{ "modal-form.PleaseEnterSpDeathDate" | translate }}
+              </div>
+            </div>
+            <br /><br />
+            <div class="col-md-5 offset-md-1">
+              <label>{{ "modal-form.povertyIndex" | translate }}</label>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="earnings"
+              />
+            </div>
+          </div>
+          <br />
 
+          <div class="row">
+            <div class="col-md-5">
+              <label>{{ "modal-form.ResidentialStatus" | translate }} </label>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="residentialStatus"
+              />
+            </div>
+            <br /><br />
+            <div class="col-md-5 offset-md-1">
+              <label>{{ "modal-form.Notes" | translate }}</label>
+              <textarea class="form-control"></textarea>
+            </div>
+            <br />
 
-    <div class="row">
-      <div class="col-md-5"> 
-        <label>{{ 'modal-form.TheAmountPaid' | translate }}</label>
-        <input type="text" class="form-control"
-        formControlName="TheAmountPaid">     
-      </div><br><br>
-      <div class="col-md-5 offset-md-1">
-        <label>{{ 'modal-form.TheAmountSpent' | translate }}</label>
-        <input type="text" class="form-control"
-        formControlName="TheAmountSpent">   
-      </div>
-    </div>
+            <div class="row"></div>
+            <div class="col-md-5">
+              <label>{{ "modal-form.GodFatherType" | translate }}</label>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="godFatherType"
+              />
+            </div>
+          </div>
+          <br />
 
+          <div class="row">
+            <div class="col-md-5">
+              <label>{{ "modal-form.TheAmountPaid" | translate }}</label>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="TheAmountPaid"
+              />
+            </div>
+            <br /><br />
+            <div class="col-md-5 offset-md-1">
+              <label>{{ "modal-form.TheAmountSpent" | translate }}</label>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="TheAmountSpent"
+              />
+            </div>
+          </div>
 
-    
+          <ng-container formArrayName="orphansList">
+            <ng-container
+              *ngFor="let orphanDataForm of orphansList.controls; let i = index"
+              [formGroupName]="i"
+            >
+              <div class="lesson-form-row mt-2">
+                <!--[formGroup]="orphansList"> -->
 
-  
-<ng-container formArrayName="orphansList">
-<ng-container *ngFor="let orphanDataForm of orphansList.controls; let i = index"  [formGroupName]="i">
-   <div class="lesson-form-row mt-2"> <!--[formGroup]="orphansList"> -->
+                <h5>
+                  {{ "modal-form.Orphan" | translate }} {{ i + 1 }}
+                  <button
+                    class="btn btn-danger btn-xs"
+                    (click)="deleteOrphan(i)"
+                  >
+                    {{ "modal-form.deleteOrphan" | translate }}
+                  </button>
+                </h5>
 
-  <h5>{{ 'modal-form.Orphan' | translate }} {{i+1}}
-    <button class="btn btn-danger btn-xs" (click)="deleteOrphan(i)">
-      {{ 'modal-form.deleteOrphan' | translate }}</button></h5>
+                <div class="row mt-3">
+                  <div class="col-md-5">
+                    <label>{{ "modal-form.OrphanName" | translate }}</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      formControlName="healthStatus"
+                      [class.is-invalid]="
+                        getFormArrayProperty(i, 'name')?.invalid &&
+                        (getFormArrayProperty(i, 'name')?.touched ||
+                          getFormArrayProperty(i, 'name')?.dirty)
+                      "
+                    />
+                    <div class="invalid-feedback">
+                      {{ "modal-form.PleaseEnterName" | translate }}
+                    </div>
+                  </div>
+                  <div class="col-md-5 offset-md-1">
+                    <label>{{ "modal-form.Orphanbirthday" | translate }}</label>
+                    <input
+                      type="datetime-local"
+                      class="form-control"
+                      formControlName="dateOfBirth"
+                      [class.is-invalid]="
+                        getFormArrayProperty(i, 'dateOfBirth')?.invalid &&
+                        (getFormArrayProperty(i, 'dateOfBirth')?.touched ||
+                          getFormArrayProperty(i, 'dateOfBirth')?.dirty)
+                      "
+                    />
+                    <div class="invalid-feedback">
+                      {{
+                        "modal-form.PleaseEnterDateOfOrphanbirthday" | translate
+                      }}
+                    </div>
+                  </div>
+                </div>
 
-  <div class="row mt-3">
-    <div class="col-md-5">
-      <label>{{ 'modal-form.OrphanName' | translate }}</label>
-      <input type="text" class="form-control"
-      formControlName="healthStatus"
-      [class.is-invalid]="
-      getFormArrayProperty(i,'name')?.invalid &&
-        (getFormArrayProperty(i,'name')?.touched ||
-        getFormArrayProperty(i,'name')?.dirty)
-      ">
-      <div class="invalid-feedback">{{ 'modal-form.PleaseEnterName' | translate }}</div>
-    </div>
-    <div class="col-md-5 offset-md-1">
-      <label>{{ 'modal-form.Orphanbirthday' | translate }}</label>
-      <input type="datetime-local" class="form-control"
-      formControlName="dateOfBirth"
-      [class.is-invalid]="
-      getFormArrayProperty(i,'dateOfBirth')?.invalid &&
-        (getFormArrayProperty(i,'dateOfBirth')?.touched ||
-        getFormArrayProperty(i,'dateOfBirth')?.dirty)
-      ">
-      <div class="invalid-feedback">{{ 'modal-form.PleaseEnterDateOfOrphanbirthday' | translate }}</div>
-    </div>
-  </div>
+                <div class="row mt-3">
+                  <div class="col-md-5">
+                    <label>{{
+                      "modal-form.OrphanFirstName" | translate
+                    }}</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      formControlName="firsName"
+                      [class.is-invalid]="
+                        getFormArrayProperty(i, 'firsName')?.invalid &&
+                        (getFormArrayProperty(i, 'firsName')?.touched ||
+                          getFormArrayProperty(i, 'firsName')?.dirty)
+                      "
+                    />
+                    <div class="invalid-feedback">
+                      {{ "modal-form.PleaseenterfirstName" | translate }}
+                    </div>
+                  </div>
+                  <div class="col-md-5 offset-md-1">
+                    <label>{{ "modal-form.HealthStatus" | translate }}</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      formControlName="healthStatus"
+                      [class.is-invalid]="
+                        getFormArrayProperty(i, 'healthStatus')?.invalid &&
+                        (getFormArrayProperty(i, 'healthStatus')?.touched ||
+                          getFormArrayProperty(i, 'healthStatus')?.dirty)
+                      "
+                    />
+                    <div class="invalid-feedback">
+                      {{ "modal-form.PleaseenterHealthStatus" | translate }}
+                    </div>
+                  </div>
+                </div>
 
-  <div class="row mt-3">
-    <div class="col-md-5">
-      <label>{{ 'modal-form.OrphanFirstName' | translate }}</label>
-      <input type="text" class="form-control"
-      formControlName="firsName"
-      [class.is-invalid]="
-      getFormArrayProperty(i,'firsName')?.invalid &&
-        (getFormArrayProperty(i,'firsName')?.touched ||
-        getFormArrayProperty(i,'firsName')?.dirty)
-      ">
-      <div class="invalid-feedback">{{ 'modal-form.PleaseenterfirstName' | translate }}</div>
-    </div>
-    <div class="col-md-5 offset-md-1">
-      <label>{{ 'modal-form.HealthStatus' | translate }}</label>
-      <input type="text" class="form-control"
-      formControlName="healthStatus"
-      [class.is-invalid]="
-      getFormArrayProperty(i,'healthStatus')?.invalid &&
-        (getFormArrayProperty(i,'healthStatus')?.touched ||
-        getFormArrayProperty(i,'healthStatus')?.dirty)
-      ">
-      <div class="invalid-feedback">{{ 'modal-form.PleaseenterHealthStatus' | translate }}</div>
-    </div>
-  </div>
-
-  <!--<div class="row mt-3">
+                <!--<div class="row mt-3">
     <div class="col-md-5">
       <label>{{ 'modal-form.ResidentialStatus' | translate }} </label>
       <input type="text" class="form-control"
@@ -435,37 +712,46 @@
     </div>
   </div>-->
 
-  <div class="row mt-3">
-    <div class="col-md-5">
-      <label>{{ 'modal-form.SocialCare' | translate }} </label>
-      <input type="text" class="form-control"
-      formControlName="socialCare"
-      [class.is-invalid]="
-      getFormArrayProperty(i,'socialCare')?.invalid &&
-        (getFormArrayProperty(i,'socialCare')?.touched ||
-        getFormArrayProperty(i,'socialCare')?.dirty)
-      ">
-      <div class="invalid-feedback">{{ 'modal-form.PleaseenterSocialCare' | translate }} </div>
-    </div>
-    <div class="col-md-5 offset-md-1">
-      <label>{{ 'modal-form.AcademicLevel' | translate }}</label>
-      <input type="text" class="form-control"
-      formControlName="academicLevel"
-      [class.is-invalid]="
-      getFormArrayProperty(i,'academicLevel')?.invalid &&
-        (getFormArrayProperty(i,'academicLevel')?.touched ||
-        getFormArrayProperty(i,'academicLevel')?.dirty)
-      ">
-      <div class="invalid-feedback">{{ 'modal-form.Pleaseenteracademiclevel' | translate }}</div>
-    </div>
-  </div>
-  <div class="row mt-3">
-    <div class="col-md-5">
-      <label>{{ 'modal-form.helpstartdate' | translate }}</label>
-      <input type="text" class="form-control">
-      
-    </div>
-    <!--<div class="col-md-5 offset-md-1">
+                <div class="row mt-3">
+                  <div class="col-md-5">
+                    <label>{{ "modal-form.SocialCare" | translate }} </label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      formControlName="socialCare"
+                      [class.is-invalid]="
+                        getFormArrayProperty(i, 'socialCare')?.invalid &&
+                        (getFormArrayProperty(i, 'socialCare')?.touched ||
+                          getFormArrayProperty(i, 'socialCare')?.dirty)
+                      "
+                    />
+                    <div class="invalid-feedback">
+                      {{ "modal-form.PleaseenterSocialCare" | translate }}
+                    </div>
+                  </div>
+                  <div class="col-md-5 offset-md-1">
+                    <label>{{ "modal-form.AcademicLevel" | translate }}</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      formControlName="academicLevel"
+                      [class.is-invalid]="
+                        getFormArrayProperty(i, 'academicLevel')?.invalid &&
+                        (getFormArrayProperty(i, 'academicLevel')?.touched ||
+                          getFormArrayProperty(i, 'academicLevel')?.dirty)
+                      "
+                    />
+                    <div class="invalid-feedback">
+                      {{ "modal-form.Pleaseenteracademiclevel" | translate }}
+                    </div>
+                  </div>
+                </div>
+                <div class="row mt-3">
+                  <div class="col-md-5">
+                    <label>{{ "modal-form.helpstartdate" | translate }}</label>
+                    <input type="text" class="form-control" />
+                  </div>
+                  <!--<div class="col-md-5 offset-md-1">
       <label>{{ 'modal-form.Notes' | translate }}</label>
       <textarea class="form-control"></textarea>
     </div>
@@ -486,190 +772,246 @@
       <div class="invalid-feedback">{{ 'modal-form.PleaseenterGodFatherType' | translate }}</div>
     </div>
     </div>-->
+                </div>
+              </div>
+            </ng-container>
+          </ng-container>
 
+          <button class="btn btn-primary mt-2" (click)="addOrphan()">
+            {{ "modal-form.AddOrphan" | translate }}
+          </button>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button
+          type="button"
+          class="btn btn-secondary"
+          data-bs-dismiss="modal"
+          (click)="closeUpdateOrphanMoal()"
+        >
+          {{ "modal-form.Close" | translate }}
+        </button>
+        <button
+          type="button"
+          class="btn btn-primary"
+          data-bs-dismiss="modal"
+          (click)="onSubmitOrphanForm()"
+        >
+          {{ "modal-form.SaveDetails" | translate }}
+        </button>
+      </div>
+    </div>
   </div>
 </div>
-
-
-
-</ng-container>
-</ng-container>
-
-<button class="btn btn-primary mt-2" (click)="addOrphan()">
-{{ 'modal-form.AddOrphan'| translate }}
-</button>
-
-
-
-</form>
-</div>
-<div class="modal-footer">
-<button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="closeUpdateOrphanMoal()">{{ 'modal-form.Close' | translate }}</button>
-<button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="onSubmitOrphanForm()">{{ 'modal-form.SaveDetails' | translate }}</button>
-</div>
-</div>
-</div>
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
 
 <!-- Modal -->
-<div class="modal fade" id="addSponsorModal" data-bs-backdrop="static"  tabindex="-1" aria-labelledby="addUserModalLabel" aria-hidden="true">
-<div class="modal-dialog modal-lg">
-<div class="modal-content">
-<div class="modal-header">
-<h5 class="modal-title" id="addUserModalLabel" *ngIf="!isUpdateSponsor">{{ 'add-sponsor-modal.title' | translate }}</h5>
-<h5 class="modal-title" id="addUserModalLabel" *ngIf="isUpdateSponsor">{{ 'modal-form.UpdateSponsor' | translate }} </h5>
-<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="closeUpdateSponsorMoal()"></button>
-</div>
-<div class="modal-body">
-<h5>{{ 'modal-form.Pleasefillallthefields' | translate }}</h5>
-<form [formGroup]="sponsorForm">
-  <div class="row">
-    <div class="col-md-5">
-      <label>{{ 'modal-form.SpFirstName' | translate }}</label>
-      <input type="text" class="form-control"
-      formControlName="firstName"
-      [class.is-invalid]="
-      getSponsorFormProperty('firstName')?.invalid &&
-        (getSponsorFormProperty('firstName')?.touched ||
-        getSponsorFormProperty('firstName')?.dirty)
-      ">
-    </div>
-    <div class="col-md-5 ">
-      <label>{{ 'modal-form.SpLastName' | translate }}</label>
-      <input type="text" class="form-control"
-      formControlName="lastName"
-      [class.is-invalid]="
-      getSponsorFormProperty('lastName')?.invalid &&
-        (getSponsorFormProperty('lastName')?.touched ||
-        getSponsorFormProperty('lastName')?.dirty)
-      ">
+<div
+  class="modal fade"
+  id="addSponsorModal"
+  data-bs-backdrop="static"
+  tabindex="-1"
+  aria-labelledby="addUserModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="addUserModalLabel" *ngIf="!isUpdateSponsor">
+          {{ "add-sponsor-modal.title" | translate }}
+        </h5>
+        <h5 class="modal-title" id="addUserModalLabel" *ngIf="isUpdateSponsor">
+          {{ "modal-form.UpdateSponsor" | translate }}
+        </h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+          (click)="closeUpdateSponsorMoal()"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <h5>{{ "modal-form.Pleasefillallthefields" | translate }}</h5>
+        <form [formGroup]="sponsorForm">
+          <div class="row">
+            <div class="col-md-5">
+              <label>{{ "modal-form.SpFirstName" | translate }}</label>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="firstName"
+                [class.is-invalid]="
+                  getSponsorFormProperty('firstName')?.invalid &&
+                  (getSponsorFormProperty('firstName')?.touched ||
+                    getSponsorFormProperty('firstName')?.dirty)
+                "
+              />
+            </div>
+            <div class="col-md-5">
+              <label>{{ "modal-form.SpLastName" | translate }}</label>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="lastName"
+                [class.is-invalid]="
+                  getSponsorFormProperty('lastName')?.invalid &&
+                  (getSponsorFormProperty('lastName')?.touched ||
+                    getSponsorFormProperty('lastName')?.dirty)
+                "
+              />
+            </div>
+          </div>
+          <div class="row mt-3">
+            <div class="col-md-5">
+              <label>{{ "modal-form.Address" | translate }}</label>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="address"
+                [class.is-invalid]="
+                  getSponsorFormProperty('address')?.invalid &&
+                  (getSponsorFormProperty('address')?.touched ||
+                    getSponsorFormProperty('address')?.dirty)
+                "
+              />
+            </div>
+            <div class="col-md-5">
+              <label>{{ "modal-form.PersonalIDCard" | translate }}</label>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="personalIdCard"
+                [class.is-invalid]="
+                  getSponsorFormProperty('personalIdCard')?.invalid &&
+                  (getSponsorFormProperty('personalIdCard')?.touched ||
+                    getSponsorFormProperty('personalIdCard')?.dirty)
+                "
+              />
+            </div>
+          </div>
+          <div class="row mt-3">
+            <div class="col-md-5">
+              <label>{{ "modal-form.Phone" | translate }}</label>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="telephoneNumber"
+                [class.is-invalid]="
+                  getSponsorFormProperty('telephoneNumber')?.invalid &&
+                  (getSponsorFormProperty('telephoneNumber')?.touched ||
+                    getSponsorFormProperty('telephoneNumber')?.dirty)
+                "
+              />
+            </div>
+            <div class="col-md-5">
+              <label>{{ "modal-form.Mail" | translate }}</label>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="email"
+                [class.is-invalid]="
+                  getSponsorFormProperty('email')?.invalid &&
+                  (getSponsorFormProperty('email')?.touched ||
+                    getSponsorFormProperty('email')?.dirty)
+                "
+              />
+            </div>
+          </div>
+          <div class="row mt-3">
+            <div class="col-md-5">
+              <label>{{ "modal-form.NameofFamilyAssisted" | translate }}</label>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="nameOfFamilyAssisted"
+                [class.is-invalid]="
+                  getSponsorFormProperty('nameOfFamilyAssisted')?.invalid &&
+                  (getSponsorFormProperty('nameOfFamilyAssisted')?.touched ||
+                    getSponsorFormProperty('nameOfFamilyAssisted')?.dirty)
+                "
+              />
+            </div>
+            <div class="col-md-5">
+              <label>{{ "modal-form.helpstartdate" | translate }}</label>
+              <input type="text" class="form-control" />
+            </div>
+          </div>
+          <div class="row mt-3">
+            <div class="col-md-5">
+              <label>{{ "modal-form.NrofFamilyHelped" | translate }}</label>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="nrOfFamilyHelped"
+                [class.is-invalid]="
+                  getSponsorFormProperty('nrOfFamilyHelped')?.invalid &&
+                  (getSponsorFormProperty('nrOfFamilyHelped')?.touched ||
+                    getSponsorFormProperty('nrOfFamilyHelped')?.dirty)
+                "
+              />
+            </div>
+            <div class="col-md-5">
+              <label>{{ "modal-form.HelpType" | translate }}</label>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="helpType"
+                [class.is-invalid]="
+                  getSponsorFormProperty('helpType')?.invalid &&
+                  (getSponsorFormProperty('helpType')?.touched ||
+                    getSponsorFormProperty('helpType')?.dirty)
+                "
+              />
+            </div>
+          </div>
+          <div class="row mt-3">
+            <div class="col-md-5">
+              <label>{{ "modal-form.ContributionAmount" | translate }}</label>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="contributedAmount"
+                [class.is-invalid]="
+                  getSponsorFormProperty('contributedAmount')?.invalid &&
+                  (getSponsorFormProperty('contributedAmount')?.touched ||
+                    getSponsorFormProperty('contributedAmount')?.dirty)
+                "
+              />
+            </div>
+            <div class="col-md-5">
+              <label>{{ "modal-form.PaidYesOrNo" | translate }}</label>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="paid"
+                [class.is-invalid]="
+                  getSponsorFormProperty('paid')?.invalid &&
+                  (getSponsorFormProperty('paid')?.touched ||
+                    getSponsorFormProperty('paid')?.dirty)
+                "
+              />
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button
+          type="button"
+          class="btn btn-secondary"
+          (click)="closeUpdateSponsorMoal()"
+          data-bs-dismiss="modal"
+        >
+          {{ "modal-form.Close" | translate }}
+        </button>
+        <button
+          type="button"
+          class="btn btn-primary"
+          data-bs-dismiss="modal"
+          (click)="onSubmitSponsorForm()"
+        >
+          {{ "modal-form.SaveDetails" | translate }}
+        </button>
+      </div>
     </div>
   </div>
-  <div class="row mt-3">
-    <div class="col-md-5">
-      <label>{{ 'modal-form.Address' | translate }}</label>
-      <input type="text" class="form-control"
-      formControlName="address"
-      [class.is-invalid]="
-      getSponsorFormProperty('address')?.invalid &&
-        (getSponsorFormProperty('address')?.touched ||
-        getSponsorFormProperty('address')?.dirty)
-      ">
-    </div>
-    <div class="col-md-5">
-      <label>{{ 'modal-form.PersonalIDCard' | translate }}</label>
-      <input type="text" class="form-control"
-      formControlName="personalIdCard"
-      [class.is-invalid]="
-      getSponsorFormProperty('personalIdCard')?.invalid &&
-        (getSponsorFormProperty('personalIdCard')?.touched ||
-        getSponsorFormProperty('personalIdCard')?.dirty)
-      ">
-    </div>
-  </div>
-  <div class="row mt-3">
-    <div class="col-md-5">
-      <label>{{ 'modal-form.Phone' | translate }}</label>
-      <input type="text" class="form-control"
-      formControlName="telephoneNumber"
-      [class.is-invalid]="
-      getSponsorFormProperty('telephoneNumber')?.invalid &&
-        (getSponsorFormProperty('telephoneNumber')?.touched ||
-        getSponsorFormProperty('telephoneNumber')?.dirty)
-      ">
-    </div>
-    <div class="col-md-5">
-      <label>{{ 'modal-form.Mail' | translate }}</label>
-      <input type="text" class="form-control"
-      formControlName="email"
-      [class.is-invalid]="
-      getSponsorFormProperty('email')?.invalid &&
-        (getSponsorFormProperty('email')?.touched ||
-        getSponsorFormProperty('email')?.dirty)
-      ">
-    </div>
-  </div>
-  <div class="row mt-3">
-    <div class="col-md-5">
-      <label>{{ 'modal-form.NameofFamilyAssisted' | translate }}</label>
-      <input type="text" class="form-control"
-      formControlName="nameOfFamilyAssisted"
-      [class.is-invalid]="
-      getSponsorFormProperty('nameOfFamilyAssisted')?.invalid &&
-        (getSponsorFormProperty('nameOfFamilyAssisted')?.touched ||
-        getSponsorFormProperty('nameOfFamilyAssisted')?.dirty)
-      ">
-    </div>
-    <div class="col-md-5">
-      <label>{{ 'modal-form.helpstartdate' | translate }}</label>
-      <input type="text" class="form-control">
-      
-    </div>
-    
-  </div>
-  <div class="row mt-3">
-    <div class="col-md-5">
-      <label>{{ 'modal-form.NrofFamilyHelped' | translate }}</label>
-      <input type="text" class="form-control"
-      formControlName="nrOfFamilyHelped"
-      [class.is-invalid]="
-      getSponsorFormProperty('nrOfFamilyHelped')?.invalid &&
-        (getSponsorFormProperty('nrOfFamilyHelped')?.touched ||
-        getSponsorFormProperty('nrOfFamilyHelped')?.dirty)
-      ">
-    </div>
-    <div class="col-md-5">
-      <label>{{ 'modal-form.HelpType' | translate }}</label>
-      <input type="text" class="form-control"
-      formControlName="helpType"
-      [class.is-invalid]="
-      getSponsorFormProperty('helpType')?.invalid &&
-        (getSponsorFormProperty('helpType')?.touched ||
-        getSponsorFormProperty('helpType')?.dirty)
-      ">
-    </div>
-  </div>
-  <div class="row mt-3">
-    <div class="col-md-5">
-      <label>{{ 'modal-form.ContributionAmount' | translate }}</label>
-      <input type="text" class="form-control"
-      formControlName="contributedAmount"
-      [class.is-invalid]="
-      getSponsorFormProperty('contributedAmount')?.invalid &&
-        (getSponsorFormProperty('contributedAmount')?.touched ||
-        getSponsorFormProperty('contributedAmount')?.dirty)
-      ">
-    </div>
-    <div class="col-md-5">
-      <label>{{ 'modal-form.PaidYesOrNo'  | translate }}</label>
-      <input type="text" class="form-control"
-      formControlName="paid"
-      [class.is-invalid]="
-      getSponsorFormProperty('paid')?.invalid &&
-        (getSponsorFormProperty('paid')?.touched ||
-        getSponsorFormProperty('paid')?.dirty)
-      ">
-    </div>
-  </div>
-</form>
 </div>
-<div class="modal-footer">
-<button type="button" class="btn btn-secondary" (click)="closeUpdateSponsorMoal()" data-bs-dismiss="modal">{{ 'modal-form.Close' | translate }}</button>
-<button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="onSubmitSponsorForm()">{{ 'modal-form.SaveDetails' | translate }}</button>
-</div>
-</div>
-</div>
-</div>
-

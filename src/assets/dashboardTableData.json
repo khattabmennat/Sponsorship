@@ -1,0 +1,58 @@
+[
+  {
+    "orphans": 5,
+    "sponsors": 3,
+    "families": 2,
+    "isPaid": false,
+    "helpStartDate": "01-12-2022",
+    "WaisenpatenschaftFormel": "t1"
+  },
+  {
+    "orphans": 50,
+    "sponsors": 3,
+    "families": 2,
+    "isPaid": false,
+    "helpStartDate": "01-12-2022",
+    "WaisenpatenschaftFormel": "t2"
+  },
+  {
+    "orphans": 500,
+    "sponsors": 3,
+    "families": 2,
+    "isPaid": false,
+    "helpStartDate": "01-12-2022",
+    "WaisenpatenschaftFormel": "t3"
+  },
+  {
+    "orphans": 5,
+    "sponsors": 3,
+    "families": 2,
+    "isPaid": false,
+    "helpStartDate": "01-12-2022",
+    "WaisenpatenschaftFormel": "t4"
+  },
+  {
+    "orphans": 50,
+    "sponsors": 3,
+    "families": 2,
+    "isPaid": false,
+    "helpStartDate": "01-12-2022",
+    "WaisenpatenschaftFormel": "t5"
+  },
+  {
+    "orphans": 500,
+    "sponsors": 3,
+    "families": 2,
+    "isPaid": false,
+    "helpStartDate": "01-12-2022",
+    "WaisenpatenschaftFormel": "t6"
+  },
+  {
+    "orphans": 5,
+    "sponsors": 3,
+    "families": 2,
+    "isPaid": false,
+    "helpStartDate": "01-12-2022",
+    "WaisenpatenschaftFormel": "t6"
+  }
+]
