@@ -1,4 +1,9 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Observable, switchMap } from 'rxjs';
+import { Sponsor } from 'src/app/models/sponsor';
+import { SponsorService } from 'src/app/services/sponsor.service';
 
 @Component({
   selector: 'Sponsorship-sponsor-profile',
@@ -7,25 +12,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SponsorProfileComponent implements OnInit {
 
-  sponsorDetails = 
-  {
-    firstName: "Al Nora",
-    lastName: 'Mobatach',
-    address: 'JLT DMCC Dubai',
-    personalIdCard: '329023',
-    telephoneNumber: '39239923',
-    email: "aln@gmail.com",
-    nameOfFamilyAssisted: 'Jumairah Katey',
-    NrOfFamilyHelped: 4,
-    helpType: 'Sponsored',
-    helpstartdate : '20.12.2021',
-    contributedAmount: "50K DHM",
-    paid: true
+  baseUrl: string= "https://localhost:7170/Waisen/";
+
+  sponsorid: number;
+
+  sponsorDetails:Sponsor;
+
+  constructor(
+    private http: HttpClient, 
+    private route: ActivatedRoute,
+    private sponsorService: SponsorService) { }
+
+  ngOnInit() {
+    this.sponsorid =  Number(this.route.snapshot.paramMap.get('sponsorid'));
+    this.sponsorService
+        .getSponsorDataById(this.sponsorid)
+        .subscribe(data => {
+            console.log(data); 
+            this.sponsorDetails = data;
+         });
   }
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
 }

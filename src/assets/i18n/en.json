@@ -122,6 +122,9 @@
     "SelectedFiles": "Selected Files",
     "AreYouSureYouWanttoDelete": "Are You Sure You Want to Delete?",
 
+    "addfamilywassuccessfull": "Saving new family was successful",
+    "addsponsorwassuccessfull":"Saving new Sponsor was successful",
+
     "Spfullname": "Full Name",
     "SpFirstName": "First Name",
     "SpLastName": "Last Name",
@@ -139,6 +142,8 @@
     "ChangePhoto": "Change Photo",
     "helpstartdate": "Help Start Date",
     "PaidYesOrNo": "Paid? Yes Or No",
+    "PaidYes": "Yes",
+    "PaidNo": "No",
     "TheAmountPaid": "the Amount Paid",
     "TheAmountSpent": "The Amount Spent",
 

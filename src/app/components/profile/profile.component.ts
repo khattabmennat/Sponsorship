@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { familywithorphans } from 'src/app/models/familywithorphans';
+import { FamilyService } from 'src/app/services/orphan.service';
 
 @Component({
   selector: 'app-profile',
@@ -7,58 +10,31 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfileComponent implements OnInit {
 
-  isEdit = false
+  isEdit = false;
 
-  orphanDetails = {
-    imageUrl: '',
-    familyName: 'Jumairah Katey',
-    motherName: 'Nasty Wilcon',
-    motherFirstName: 'Ajriza Khanum',
-    maternalHealthStatus: 'Good Health',
-    personalId: 2323232,
-    telephoneNumber: '3020392',
-    profession: 'House Wife',
-    numberOfOrphans: 3,
-    spouseDeathDate: new Date(),
-    address: 'new auston roads street iii',
-    attachements: [
+  baseUrl: string= "https://localhost:7170/Waisen/";
 
-    ],
-    orphansList: [
-      {
-        name: 'Arman Khan',
-        dateOfBirth: new Date(),
-        firstName: 'Arman',
-        healthStatus: 'Normal Healthy',
-        residentialStatus: 'Single',
-        numberOfPeople: 3,
-        socialCare: 'fit',
-        earning: 'Student',
-        academicLevel: '5 Grade',
-        notes: 'this is details about orphan'
-      },
-      {
-        name: 'Sony Tomer',
-        dateOfBirth: new Date(),
-        firstName: 'Sony',
-        healthStatus: 'Normal Healthy',
-        residentialStatus: 'Single',
-        numberOfPeople: 3,
-        socialCare: 'fit',
-        earning: 'Student',
-        academicLevel: '6 Grade',
-        notes: 'this is details about orphan'
-      }
-    ]
-  }
+  familyDetails: familywithorphans;
 
-  constructor() { }
+  constructor(private route: ActivatedRoute, private familyService: FamilyService) {}
 
   ngOnInit(): void {
+    let familyId =  Number(this.route.snapshot.paramMap.get('sponsorid'));
+    this.getFamilyWithOrphanData(familyId);
   }
 
-  toggleEdit(){
-    this.isEdit = ! this.isEdit
+  /**
+     * Get Family with orphans data by id
+     * @returns 
+     */
+  async getFamilyWithOrphanData(familyId: number){
+    await this.familyService
+               .getFamilyWithOrphanDataById(familyId)
+               .subscribe(data =>{
+                  console.log(data);  
+                  this.familyDetails = data;
+        });
   }
+
 
 }

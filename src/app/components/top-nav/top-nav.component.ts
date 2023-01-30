@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
-import { OrphanService } from '../../services/orphan.service';
+import { FamilyService } from '../../services/orphan.service';
 
 @Component({
   selector: 'Sponsorship-top-nav',
@@ -25,7 +25,7 @@ export class TopNavComponent implements OnInit {
   constructor(
     private router: Router,
     private translate: TranslateService,
-    private orService: OrphanService
+    private orService: FamilyService
   ) {}
 
   ngOnInit(): void {

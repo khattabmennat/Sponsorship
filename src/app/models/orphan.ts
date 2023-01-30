@@ -1,14 +1,12 @@
-// export class Orphan {
-//     imageUrl: string;
-// 	familyName:string;
-// 	motherName:string;
-// 	motherFirstName:string;
-// 	maternalHealthStatus:string;
-// 	personalId:number;
-// 	telephoneNumber:number;
-// 	profession:string;
-// 	numberOfOrphans:number;
-// 	spouseDeathDate:Date;
-// 	address:string;
-// 	attachements:string;
-// }
+export interface Orphan {
+    id:number;
+    name: string;
+    dateOfBirth:Date;
+    firstName:string;
+    healthStatus:string;
+    residentialStatus:string;
+    socialCare:string;
+    earning:string;
+    academicLevel:string;
+    notes:string;
+}

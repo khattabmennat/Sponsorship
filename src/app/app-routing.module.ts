@@ -11,7 +11,7 @@ const routes: Routes = [
   { path: '', component: LoginComponent },
   { path: 'login', component: LoginComponent },
   { path: 'profile', component: ProfileComponent },
-  { path: 'sponsor-profile', component: SponsorProfileComponent },
+  { path: 'sponsor-profile/:sponsorid', component: SponsorProfileComponent },
   { path: 'admin-page', component: AdminPageComponent },
   { path: 'main-page', component: MainPageComponent },
   { path: 'dashboard', component: DashboardComponent },

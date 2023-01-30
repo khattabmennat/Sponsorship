@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { OrphanService } from './orphan.service';
+import { FamilyService } from './orphan.service';
 
 describe('OrphanService', () => {
-  let service: OrphanService;
+  let service: FamilyService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(OrphanService);
+    service = TestBed.inject(FamilyService);
   });
 
   it('should be created', () => {

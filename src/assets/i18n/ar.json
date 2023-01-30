@@ -125,6 +125,9 @@
     "SelectedFiles": "الملفات المختارة",
     "AreYouSureYouWanttoDelete": "هل أنت متأكد من أنك تريد الحذف",
 
+    "addfamilywassuccessfull": "لقد تم بنجاح تسجيل بيانات أسرة جديدة",
+    "addsponsorwassuccessfull":"لقد تم بنجاح تسجيل بيانات كفيل جديد",
+
     "Spfullname": "الاسم الكامل للكفيل",
     "SpFirstName": "الاسم الشخصي للكفيل",
     "SpLastName": "الاسم العائلي للكفيل",
@@ -148,6 +151,8 @@
     "Attachments": "المرفقات",
     "GoBack": "رجوع",
     "PaidYesOrNo": "تم دفع الكفالة ؟ نعم ام لا",
+    "PaidYes": "نعم",
+    "PaidNo": "لا",
     "TheAmountPaid": "مبلغ الكفالة المدفوع",
     "TheAmountSpent": "المبلغ المنفق"
   },

@@ -16,12 +16,12 @@
                 <div class="col-md-6">
                     <div class="profile-head">
                                 <h5>
-                                    {{orphanDetails.familyName}}
+                                    {{familyDetails.familyName}}
                                 </h5>
                                 <h6>
-                                    {{orphanDetails.profession}}
+                                    {{familyDetails.profession}}
                                 </h6>
-                                <p class="proile-rating">{{ 'modal-form.NumberOfOrphans' | translate }}  : <span>{{orphanDetails.orphansList.length}}</span></p>
+                                <p class="proile-rating">{{ 'modal-form.NumberOfOrphans' | translate }}  : <span>{{familyDetails.orphansList.length}}</span></p>
                         <ul class="nav nav-tabs" id="myTab" role="tablist">
                             <li class="nav-item">
                                 <a class="nav-link active" id="home-tab" data-bs-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">{{ 'modal-form.AboutMother' | translate }}</a>
@@ -37,14 +37,13 @@
                 </div>
                 <div class="col-md-2">
                     <button routerLink="/admin-page" class="btn btn-primary float-right">{{ 'modal-form.GoBack' | translate }}</button>
-                    <!-- <input (click)="toggleEdit()" class="profile-edit-btn" name="btnAddMore" value="Edit Profile"/> -->
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-4">
                     <div class="profile-work">
                         <p>Adress</p>
-                        <a href="">{{orphanDetails.address}}</a><br/>
+                        <a href="">{{familyDetails.address}}</a><br/>
                     </div>
                 </div>
                 <div class="col-md-8">
@@ -55,7 +54,7 @@
                                             <label>{{ 'modal-form.PersonalIDCard' | translate }} </label>
                                         </div>
                                         <div class="col-md-6">
-                                            <p>{{orphanDetails.personalId}}</p> 
+                                            <p>{{familyDetails.personalId}}</p> 
                                         </div>
                                     </div>
                                     <div class="row">
@@ -63,7 +62,7 @@
                                             <label>{{ 'modal-form.MotherlastName' | translate }}</label>
                                         </div>
                                         <div class="col-md-6">                                            
-                                            <p>{{orphanDetails.familyName}}</p>
+                                            <p>{{familyDetails.familyName}}</p>
                                         </div>
                                     </div>
                                     <div class="row">
@@ -71,7 +70,7 @@
                                             <label>{{ 'modal-form.MotherFirstName' | translate }}</label>
                                         </div>
                                         <div class="col-md-6">
-                                            <p>{{orphanDetails.motherName}}</p>
+                                            <p>{{familyDetails.motherName}}</p>
                                         </div>
                                     </div>
                                     <div class="row">
@@ -79,7 +78,7 @@
                                             <label>{{ 'modal-form.Phone' | translate }}</label>
                                         </div>
                                         <div class="col-md-6">
-                                            <p>{{orphanDetails.telephoneNumber}}</p>
+                                            <p>{{familyDetails.telephoneNumber}}</p>
                                         </div>
                                     </div>
                                     <div class="row">
@@ -87,7 +86,7 @@
                                             <label>{{ 'modal-form.profession' | translate }}</label>
                                         </div>
                                         <div class="col-md-6">
-                                            <p>{{orphanDetails.profession}}</p>
+                                            <p>{{familyDetails.profession}}</p>
                                         </div>
                                     </div>
                                     <div class="row">
@@ -95,7 +94,7 @@
                                             <label>{{ 'modal-form.MaternalHealthStatus' | translate }}</label>
                                         </div>
                                         <div class="col-md-6">
-                                            <p>{{orphanDetails.maternalHealthStatus}}</p>
+                                            <p>{{familyDetails.maternalHealthStatus}}</p>
                                         </div>
                                     </div>
                                     <div class="row">
@@ -103,12 +102,12 @@
                                             <label>{{ 'modal-form.SpDeathDate' | translate }}</label>
                                         </div>
                                         <div class="col-md-6">
-                                            <p>{{orphanDetails.spouseDeathDate | date}}</p>
+                                            <p>{{familyDetails.spouseDeathDate | date}}</p>
                                         </div>
                                     </div>
                         </div>
                         <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                            <div class="orphans-list" *ngFor="let orphan of orphanDetails.orphansList; let i = index">
+                            <div class="orphans-list" *ngFor="let orphan of familyDetails.orphansList; let i = index">
                                 <hr>
                                 <h5>{{'modal-form.Orphan' | translate }} {{i+1}}</h5>
                                 <div class="row">
@@ -124,7 +123,7 @@
                                         <label>{{ 'modal-form.OrphanFirstName' | translate }}</label>
                                     </div>
                                     <div class="col-md-6">
-                                        <p>{{orphanDetails.profession}}</p>
+                                        <p>{{familyDetails.profession}}</p>
                                     </div>
                                 </div>
                                 <div class="row">

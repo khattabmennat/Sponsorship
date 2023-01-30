@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup,Validators, FormControl, FormBuilder } from '@angular/forms';
 import { TimerService } from '../../services/timer.service';
-import { OrphanService } from '../../services/orphan.service';
+import { FamilyService } from '../../services/orphan.service';
 
 @Component({
   selector: 'Sponsorship-main-page',
@@ -33,7 +33,7 @@ export class MainPageComponent implements OnInit {
   
   constructor(
     public fb: FormBuilder,
-    private orphanService: OrphanService,
+    private orphanService: FamilyService,
     private timer:TimerService
     ) { }
 
@@ -86,7 +86,7 @@ export class MainPageComponent implements OnInit {
   }
 
   async getUsrs(){
-    await this.orphanService.getOrphanData().subscribe(data =>{
+    await this.orphanService.getFamilyList().subscribe(data =>{
       console.log(data);  
       debugger;
       this.userList = data;

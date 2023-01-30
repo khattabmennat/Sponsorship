@@ -1,7 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { OrphanService } from '../../services/orphan.service';
+import { stringify } from 'querystring';
+import { Family } from 'src/app/models/family';
+import { Sponsor } from 'src/app/models/sponsor';
+import { FamilyService } from '../../services/orphan.service';
 import { SponsorService } from '../../services/sponsor.service';
 
 @Component({
@@ -22,8 +25,8 @@ export class AdminPageComponent implements OnInit {
 
   users:any=[];
   
-  userList:any = [];
-  sponsorList:any = [];
+  userList:Family[] = [];
+  sponsorList:Sponsor[] = [];
   
   attachments: any[] = []
 
@@ -31,15 +34,20 @@ export class AdminPageComponent implements OnInit {
   
   sponsorForm! : FormGroup;
   
-  isUpdateOrphan = false
-  isUpdateSponsor = false
+  isUpdateOrphan = false;
+  isUpdateSponsor = false;
+
+  sponsorToDelete: number;
+  orphanToDelete: number;
   
-  motherImage:any  
+  motherImage:any;
+
+  helpTypes: any=['HelpTyp 1', 'HelpTyp 2'];
 
   
   constructor(
     private fb: FormBuilder,
-    private orphanService: OrphanService,
+    private orphanService: FamilyService,
     private sponsorService: SponsorService) {
    }
 
@@ -54,14 +62,22 @@ export class AdminPageComponent implements OnInit {
       familyName: [null,[Validators.required]],
       motherName: [null,[Validators.required]],
       motherFirstName: [null,[Validators.required]],
-      motherLastName: [null,[Validators.required]],
       profession: [null,[Validators.required]],
       maternalHealthStatus: [null,[Validators.required]],
-      personalIdCard: [null,[Validators.required]],
+      personalId: [null,[Validators.required]],
       spouseDeathDate: [null],
       address: [null,[Validators.required]],
       telephoneNumber: [null,[Validators.required]],
       numberOfOrphans: [null],
+      numberOfPerson: [null],
+      earnings:  [null],
+      residentialStatus: [null],
+      comment: [null],
+      godFatherType:[null],
+      TheAmountPaid:[null],
+      TheAmountSpent:[null],
+      familyimageUrl: [null],
+      familyimageUrlName: [null],
       orphansList: this.fb.array([])
     })
 
@@ -82,17 +98,19 @@ export class AdminPageComponent implements OnInit {
   }
 
   async getOrphans(){
-    await this.orphanService.getOrphanData().subscribe(data =>{
-      console.log(data);  
-      //debugger;
-      this.userList = data;
+    await this.orphanService
+              .getFamilyList()
+              .subscribe(data =>{
+                  console.log(data);  
+                  this.userList = data;
     })
   }
 
   async getSponsors(){
-    await this.sponsorService.getSponsorData().subscribe(data =>{
+    await this.sponsorService
+              .getSponsorData()
+              .subscribe(data => {
       console.log(data);  
-      //debugger;
       this.sponsorList = data;
     })
   }
@@ -141,21 +159,31 @@ export class AdminPageComponent implements OnInit {
   onSubmitOrphanForm(){
 
     if(this.orphanForm.valid){
-
-      let request = {...this.orphanForm.value, 
-        motherImage: this.motherImage,
-        attachemnts: this.attachments }
-        
-    this.userList.push(request)
-
-      this.orphanService.addOrphan(request).subscribe(resp => {
-        alert('orphan created '+ JSON.stringify(this.orphanForm.value))
-
-      }, err => {
-        alert('orphan created '+ JSON.stringify(this.orphanForm.value))
-      })
-    
+       
+      if(this.isUpdateOrphan){
+         this.orphanService
+             .updateFamily(this.orphanForm.value);
+      } 
+      else{
+        this.userList.push(this.orphanForm.value);
+        this.orphanService
+            .addFamilly(this.orphanForm.value)
+            .subscribe(resp => {
+                  alert('orphan created '+ JSON.stringify(this.orphanForm.value))
+        }, 
+        err => {
+            alert('orphan created '+ JSON.stringify(this.orphanForm.value))
+        })
+      }  
     } else {
+      Object.keys(this.orphanForm.controls).forEach(key => {
+        const controlErrors= this.orphanForm.get(key)?.errors;
+        if (controlErrors != null) {
+          Object.keys(controlErrors).forEach(keyError => {
+           console.log('Key control: ' + key + ', keyError: ' + keyError + ', err value: ', controlErrors[keyError]);
+          });
+        }
+      });      
       Object.values(this.orphanForm.controls).forEach(control => {
         if (control.invalid) {
           control.markAsDirty();
@@ -167,20 +195,23 @@ export class AdminPageComponent implements OnInit {
 
   onSubmitSponsorForm(){
     if(this.sponsorForm.valid){
-      let request = {
-        ...this.sponsorForm
+
+      if(this.isUpdateSponsor){
+        //this.sponsorList.pop(this.sponsorForm.value);
+        this.sponsorService.updateSponsor(this.sponsorForm.value);
       }
-
-      this.sponsorList.push(request)
-      this.sponsorService.addSponsor(request).subscribe(resp => {
-        alert('sponsor created '+ JSON.stringify(this.sponsorForm.value))
-  
-      }, err => {
-        alert('sponsor created '+ JSON.stringify(this.sponsorForm.value))
-      })
-
-    }else {
-      Object.values(this.orphanForm.controls).forEach(control => {
+      else{
+        this.sponsorList.push(this.sponsorForm.value)
+        this.sponsorService.addSponsor(this.sponsorForm.value).subscribe(resp => {
+          alert('sponsor created '+ JSON.stringify(this.sponsorForm.value))
+    
+        }, err => {
+          alert('sponsor created '+ JSON.stringify(this.sponsorForm.value))
+        })
+      }
+    }
+    else {
+      Object.values(this.sponsorForm.controls).forEach(control => {
         if (control.invalid) {
           control.markAsDirty();
           control.updateValueAndValidity({ onlySelf: true });
@@ -196,7 +227,15 @@ export class AdminPageComponent implements OnInit {
     })
   }
 
-  openUpdateSponsorMoal(sponsor:any){
+  openDeleteOrphanModal(orphanId:number){
+    this.orphanToDelete = orphanId;
+  }
+
+  openDeleteSponsorModal(sponsorId:number){
+    this.sponsorToDelete = sponsorId;
+  }
+
+  openUpdateSponsorModal(sponsor:Sponsor){
     this.isUpdateSponsor = true
     this.sponsorForm.patchValue({
       ...sponsor
@@ -217,11 +256,19 @@ export class AdminPageComponent implements OnInit {
   }
 
   delOrphan(){
-    this.userList.pop()
+    if(!!this.orphanToDelete){
+      this.orphanService.deleteFamily(this.orphanToDelete);
+      let sponsorIndex = this.userList.findIndex(x => x.id ==  this.orphanToDelete)
+      if(sponsorIndex >= 0) this.userList.splice(sponsorIndex, 1);
+    }
   }
 
-  delSponsor(){
-    this.sponsorList.pop()
+  delSponsor(){    
+    if(!!this.sponsorToDelete){
+      this.sponsorService.deleteSponsor(this.sponsorToDelete);
+      let sponsorIndex = this.sponsorList.findIndex(x => x.id ==  this.sponsorToDelete)
+      if(sponsorIndex >= 0) this.sponsorList.splice(sponsorIndex, 1);
+    }
   }
   
  DropDown() {
@@ -253,10 +300,12 @@ export class AdminPageComponent implements OnInit {
 
  onSelectImage(event:any){
   let newFile: any = {
+    name: "",
     fileBytes: null,
     extension: null
   }
 
+  newFile.Name = event.target.files[0].name;
   newFile.fileBytes = event.target.files[0];
   newFile.extension = this.fetchExt(event.target.files[0].name)
 
@@ -267,7 +316,9 @@ export class AdminPageComponent implements OnInit {
   fileReader.onload = () => {
     console.log("byte array ", fileReader.result)
     newFile.fileBytes = fileReader.result
-    this.motherImage = newFile
+    this.motherImage = newFile;
+    this.orphanForm.patchValue({familyimageUrlName: this.motherImage.name, familyimageUrl: this.motherImage.fileBytes})
+
     console.log("CompanyLogo ", this.attachments)
   }
 

@@ -122,6 +122,9 @@
     "SelectedFiles": "Ausgewählte Dateien",
     "AreYouSureYouWanttoDelete": "Möchten Sie wirklich löschen?",
 
+    "addfamilywassuccessfull": "Speicherung neuer Famillie war erfolgreich",
+    "addsponsorwassuccessfull":"Speicherung neuen Sponsor war erfolgreich",
+
     "Spfullname": "Vollständiger Name",
     "SpFirstName": "Vorname",
     "SpLastName": "Name",
@@ -147,6 +150,8 @@
     "Attachments": "Anhänge",
     "GoBack": "Zurück",
     "PaidYesOrNo": "Bezahlt? Ja Oder Nein",
+    "PaidYes": "Ja",
+    "PaidNo": "Nein",
     "TheAmountPaid": "Der gezahlte Betrag",
     "TheAmountSpent": "der ausgegebene Betrag"
   },
